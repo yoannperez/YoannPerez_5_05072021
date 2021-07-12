@@ -6,8 +6,7 @@ fetch("http://localhost:3000/api/cameras")
   })
   .then(function (value) {
     let datas = value;
-    showCameras(datas);
-    
+    showCameras(datas);  
   })
   .catch(function (err) {
     window.alert("Erreur de connection réseau");
@@ -17,11 +16,10 @@ const header = document.querySelector("header");
 const section = document.querySelector("section");
 
 
-
 function showCameras(myCameras) {
   let thisCamera = myCameras;
 
-  for (var i = 0; i < thisCamera.length; i++) {
+  for (let i in thisCamera) {
     let myCamera = document.createElement("article");
     let myName = document.createElement("h2");
     let myId = document.createElement("p");
@@ -38,13 +36,11 @@ function showCameras(myCameras) {
 
     // List Lenses
     var lenses = thisCamera[i].lenses;
-    for (var j = 0; j < lenses.length; j++) {
+    for (let j in lenses) {
       var listItem = document.createElement("li");
       listItem.textContent = lenses[j];
       myLenses.appendChild(listItem);
     }
-
-
     //Create DOM
     myCamera.appendChild(myName);
     myCamera.appendChild(myId);
