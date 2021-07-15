@@ -1,3 +1,5 @@
+//Affichage des elements sur la page
+
 fetch("http://localhost:3000/api/cameras")
   .then(function (res) {
     if (res.ok) {
@@ -11,6 +13,24 @@ fetch("http://localhost:3000/api/cameras")
   .catch(function (err) {
     window.alert("Erreur de connection réseau");
   });
+
+//Appeller un article en particulier
+
+// fetch("http://localhost:3000/api/cameras:_5be1ed3f1c9d44000030b061")
+//   .then(function (res) {
+//     if (res.ok) {
+//       return res.json();
+//     }
+//   })
+//   .then(function (value) {
+//     let monObjet = value;
+//     console.log(monObjet);  
+//   })
+//   .catch(function (err) {
+//     window.alert("Erreur de connection réseau");
+//   });
+
+
 
 const header = document.querySelector("header");
 const section = document.querySelector("section");
