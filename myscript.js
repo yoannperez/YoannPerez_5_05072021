@@ -16,19 +16,19 @@ fetch("http://localhost:3000/api/cameras")
 
 //Appeller un article en particulier
 
-// fetch("http://localhost:3000/api/cameras:_5be1ed3f1c9d44000030b061")
-//   .then(function (res) {
-//     if (res.ok) {
-//       return res.json();
-//     }
-//   })
-//   .then(function (value) {
-//     let monObjet = value;
-//     console.log(monObjet);  
-//   })
-//   .catch(function (err) {
-//     window.alert("Erreur de connection réseau");
-//   });
+fetch("http://localhost:3000/api/cameras/5be1ed3f1c9d44000030b061")
+  .then(function (res) {
+    if (res.ok) {
+      return res.json();
+    }
+  })
+  .then(function (value) {
+    let monObjet = value;
+    console.log(monObjet);  
+  })
+  .catch(function (err) {
+    window.alert("Erreur de connection réseau");
+  });
 
 
 
