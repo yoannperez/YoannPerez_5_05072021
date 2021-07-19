@@ -1,3 +1,5 @@
+import {name} from './toto.mjs'
+
 //Affichage des elements sur la page
 
 fetch("http://localhost:3000/api/cameras")
@@ -15,8 +17,10 @@ fetch("http://localhost:3000/api/cameras")
   });
 
 //Appeller un article en particulier
-
-fetch("http://localhost:3000/api/cameras/5be1ed3f1c9d44000030b061")
+function getArticleById(id){
+  let objToCall = "http://localhost:3000/api/cameras/"+id;
+  console.log(objToCall);
+fetch(objToCall)
   .then(function (res) {
     if (res.ok) {
       return res.json();
@@ -24,12 +28,13 @@ fetch("http://localhost:3000/api/cameras/5be1ed3f1c9d44000030b061")
   })
   .then(function (value) {
     let monObjet = value;
+    console.log("Retour appel objet: " + id);
     console.log(monObjet);  
   })
   .catch(function (err) {
     window.alert("Erreur de connection réseau");
   });
-
+}
 
 
 const header = document.querySelector("header");
@@ -50,9 +55,16 @@ function showCameras(myCameras) {
 
     myName.textContent = "Model: " + thisCamera[i].name;
     myId.textContent = "ID: " + thisCamera[i]._id;
-    myPrice.textContent = "Prix: " + thisCamera[i].price;
+    myPrice.textContent = "Prix: " + Number.parseFloat(thisCamera[i].price/100).toFixed(2) + "€";
     myDescription.textContent = "Model: " + thisCamera[i].description;
-    myImage.innerHTML = `<img src="${thisCamera[i].imageUrl}" alt="${thisCamera[i].name}">`;
+    myImage.innerHTML = `<img class="img_article" src="${thisCamera[i].imageUrl}" alt="${thisCamera[i].name}">`;
+
+    // 
+    let whichArticle = myCamera.addEventListener('click', function(){
+      //Open article's page
+      var myWindow = window.open("./article.html", "_self");
+ 
+    })
 
     // List Lenses
     var lenses = thisCamera[i].lenses;
