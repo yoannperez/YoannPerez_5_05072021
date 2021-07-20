@@ -1,4 +1,4 @@
-import {name} from './toto.mjs'
+
 
 //Affichage des elements sur la page
 
@@ -46,6 +46,7 @@ function showCameras(myCameras) {
 
   for (let i in thisCamera) {
     let myCamera = document.createElement("article");
+    
     let myName = document.createElement("h2");
     let myId = document.createElement("p");
     let myPrice = document.createElement("p");
@@ -53,18 +54,20 @@ function showCameras(myCameras) {
     let myLenses = document.createElement("ul");
     let myImage = document.createElement("div");
 
+    
+
     myName.textContent = "Model: " + thisCamera[i].name;
     myId.textContent = "ID: " + thisCamera[i]._id;
     myPrice.textContent = "Prix: " + Number.parseFloat(thisCamera[i].price/100).toFixed(2) + "€";
-    myDescription.textContent = "Model: " + thisCamera[i].description;
+    myDescription.textContent = "Description: " + thisCamera[i].description;
     myImage.innerHTML = `<img class="img_article" src="${thisCamera[i].imageUrl}" alt="${thisCamera[i].name}">`;
 
     // 
-    let whichArticle = myCamera.addEventListener('click', function(){
-      //Open article's page
-      var myWindow = window.open("./article.html", "_self");
+    // let whichArticle = myCamera.addEventListener('click', function(){
+    //   //Open article's page
+    //   var myWindow = window.open("./article.html", "_self");
  
-    })
+    // })
 
     // List Lenses
     var lenses = thisCamera[i].lenses;
@@ -74,13 +77,13 @@ function showCameras(myCameras) {
       myLenses.appendChild(listItem);
     }
     //Create DOM
+    
     myCamera.appendChild(myName);
-    myCamera.appendChild(myId);
     myCamera.appendChild(myPrice);
     myCamera.appendChild(myDescription);
     myCamera.appendChild(myLenses);
     myCamera.appendChild(myImage);
-
-    section.appendChild(myCamera).classList.add("red");
+    myCamera.appendChild(myId).classList.add("bg-light");
+    section.appendChild(myCamera).classList.add("col", "bg-light","border", "border-1", "rounded-3", "paddin-3");
   }
 }
