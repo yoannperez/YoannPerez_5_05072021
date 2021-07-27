@@ -1,5 +1,4 @@
 
-
 //Affichage des elements sur la page
 
 fetch("http://localhost:3000/api/cameras")
