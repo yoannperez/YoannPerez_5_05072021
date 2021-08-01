@@ -1,3 +1,8 @@
+body{
+    background-color: rgba(255, 0, 0, 0.295);
+}
+
+
 .red{
     border: 2px solid grey;
     border-radius: 15px;
@@ -21,3 +26,11 @@
     top:50px;
     left: 300px;
 } */
+
+ul{
+    list-style-type: circle;
+    
+}
+article:hover{
+    cursor: pointer;
+}
