@@ -27,15 +27,23 @@ function buildDom(articleToshow) {
     
   // Extract lenses list
   let lenses = product.lenses;
-  let myLenses = document.createElement("ul");
+  let myLenses = document.createElement("select");
+  myLenses.classList.add("form-select")
+  myLenses.setAttribute("aria-label", "Sélectionner votre option");
+  let firstItem = document.createElement("option");
+  firstItem.innerHTML = "Choisisez votre optique";
+  myLenses.appendChild(firstItem);
+
   for (let j in lenses) {
-    var listItem = document.createElement("li");
+    var listItem = document.createElement("option");
+    
+    
+    listItem.setAttribute("value", `value=${j}`);
     listItem.textContent = lenses[j];
-    // listItem.classList.add("list-inline-item")
     myLenses.appendChild(listItem);
     }
 
-  document.querySelector(".toto").innerHTML += `
+  document.querySelector("#productContainer").innerHTML += `
       <article class="container bg-light border rounded-2 shadow p-4">
       <div class="row p-2">
       <img class="col-lg-4 img-fluid img-thumbnail rounded mx-auto d-block shadow-sm" src="${product.imageUrl}" alt="${product.name}">
