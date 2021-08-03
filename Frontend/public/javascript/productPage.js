@@ -122,9 +122,9 @@ function buildDom(articleToshow) {
         nameProduct: product.name,
         priceProduct: product.price,
         // optionProduct: optionChoised.value,
-        // quantityProduct: quantitySelected.value,
+        quantityProduct: quantitySelected.value,
     };
-    console.log(productToAdd)
+    console.log("Produit à ajouter : ",productToAdd)
   };
 }
 
@@ -132,21 +132,56 @@ function buildDom(articleToshow) {
 // Save this production in the Local Storage
 // -----------------------------------------------------
 
-function saveToCart (products) {
-    let myProducts = getMyCart();
-    myProducts.push(products)
-}
+// function saveToCart (products) {
+//     let myProducts = getMyCart();
+//     myProducts.push(products)
+// }
 
-function getMyCart () {
-    let cartList = localStorage.getItem("myProducts");
-    if (myProducts == null){
-        return [];
-    }else{
-        return JSON.parse(myProducts)
+// function getMyCart () {
+//     let cartList = localStorage.getItem("myProducts");
+//     if (myProducts == null){
+//         return [];
+//     }else{
+//         return JSON.parse(myProducts)
+//     }
+// }
+
+
+//---------------------------- Reprise --------------------------
+let panier
+
+// Si le storage n'existe pas, le créer
+if (!localStorage.getItem("panier")){
+    panier =[];
+    localStorage.setItem("panier", JSON.stringify(panier));
+    } 
+     // si le panier existe le charger dans le tableau   
+    else {
+        panier= JSON.parse(localStorage.getItem("panier"))
+         
     }
+
+// Sauvegarder le produit actuel dans le panier
+
+function saveToLocal(product){
+    panier.push(product),
+    localStorage.setItem("panier", JSON.stringify(panier));
 }
 
-function saveToLocal(objetToSave){
-    localStorage.setItem("cart", JSON.stringify(objetToSave));
-}
+// function conditions(){
+//     for (i in panierTableau){
+//         if (i.idProduct === objetToSave.idProduct){
+//             alert("Ce produit existe déjà")
+//         }else {
+//     panierTableau.push(productToAdd)}
+//     
+//     }    
+// }
+const totalCart= ()=>{
+let total = 0;
+for (let i in panier){
+    total += panier[i].priceProduct;
 
+}
+console.log(total);
+}
