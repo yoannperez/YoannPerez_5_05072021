@@ -20,9 +20,9 @@ fetch("http://localhost:3000/api/cameras").then(data => data.json())
                     }
 
                 // myLenses.classList.add("list-inline")
-                document.querySelector(".container").innerHTML += `
+                document.getElementById("listProducts").innerHTML += `
                                                                         <article class="container bg-light border rounded-2 shadow mb-10 p-4">
-                                                                            <div class="row p-2">
+                                                                            <div class="row p-2 ">
                                                                                 <div class="col-lg-8">
                                                                                     <h2 class="h2 ">${product.name}</h2>
                                                                                     <hr/>
