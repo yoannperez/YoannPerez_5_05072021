@@ -21,17 +21,11 @@
     
       <!-- header-->
       <header>
-        <nav
-          class="navbar navbar-expand navbar-light bg-light rounded-2 shadow"
-          aria-label="Navigation"
-        >
+        <nav class="navbar navbar-expand fixed-top navbar-light bg-light rounded-2 shadow" aria-label="Navigation" >
           <div class="container-fluid">
-            <a class="navbar-brand " href="#"
-              ><img
-                class="img-fluid"
-                src="./public/img/15675819263013_image1.png"
-                alt="Orinoco"
-            /></a>
+            <a class="navbar-brand " href="#">
+              <img class="img-fluid" src="./public/img/15675819263013_image1.png" alt="Orinoco"/>
+            </a>
             <div class="collapse navbar-collapse" id="navbarsExample02">
               <ul class="navbar-nav me-auto">
                 <li class="nav-item">
@@ -66,16 +60,17 @@
       
 
 
-      <div class="container d-grid gap-3 p-3 bg-success">
-        <h1 class="fw-bold">Nos produits</h1>
+      <div id="listProducts" class="container d-grid gap-3 p-3" >
+        <h1 class="fw-bold d-flex justify-content-center">Nos produits</h1>
       </div>
     
     <footer>
-      <nav class="container-fluid text-center shadow">
-          <span class="navbar-text  translate-middle lh-lg">
-            © Onorico - 2021
-          </span>
-        </nav>
+      <nav class="navbar fixed-bottom justify-content-center navbar-light bg-light container-flex shadow">
+        <div class="row">
+          <div class="navbar-text">
+            <p>© Onorico - 2021</p>      
+          </div>
+       </nav>
     </footer>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
