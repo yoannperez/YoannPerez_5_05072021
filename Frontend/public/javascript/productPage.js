@@ -57,7 +57,7 @@ function buildDom(articleToshow) {
             <div class="col-lg-12">
                 <h2 class="h2 ">${product.name}</h2>
                 <hr/>
-                <p class="text-muted">Depuis ${price}€</p>
+                <p class="text-muted">Depuis ${price}</p>
                 <p >${product.description}</p>
                 <hr/ class="mt-3"> 
                 <div class="row">

@@ -11,36 +11,40 @@ if (!localStorage.getItem("panier")){
         let container = document.getElementById("panierContainer");
         
         //Create tab header
-        container.innerHTML += `<div class="container">
-                                    <table class="table">
+        container.innerHTML += `<div class="container border rounded-2 shadow">
+                                    <table class="table ">
                                         <thead>
                                             <tr>
                                                 <th scope="col">#</th>
                                                 <th scope="col">Article</th>
                                                 <th scope="col">Option</th>
                                                 <th scope="col">Quantité</th>
-                                                <th scope="col">Prix</th>
+                                                <th scope="col">Prix unitaire</th>
+                                                <th scope="col">Prix total</th>
                                             </tr>
                                         </thead>
                                         <tbody id="tabBody">
-                                            
                                         </tbody>
+                                        
                                     </table>
                                 </div>`
                                 ;
 
         let toto = document.getElementById("tabBody");
         
-        for (let i in panier)
-        
-        toto.innerHTML += `<tr>
-                                <th scope="row">${i}</th>
-                                <td>${panier[i].nameProduct}</td>
-                                <td>${panier[i].optionProduct}</td>
-                                <td>${panier[i].quantityProduct}</td>
-                                <th scope="col">${panier[i].priceProduct}</th>
-                            </tr>`
-         
+        for (let i in panier){
+            let p = parseInt(i)+1;
+            let totalArticle = parseInt(panier[i].priceProduct)*parseInt(panier[i].quantityProduct);
+                        
+            toto.innerHTML += `<tr>
+                                    <th scope="row">${p}</th>
+                                    <td>${panier[i].nameProduct}</td>
+                                    <td>${panier[i].optionProduct}</td>
+                                    <td>${panier[i].quantityProduct}</td>
+                                    <th scope="col">${formatPrice(panier[i].priceProduct)}</th>
+                                    <th scope="col">${formatPrice(totalArticle)}</th>
+                                </tr>`
+        }
     }
 
                                             // <tr>

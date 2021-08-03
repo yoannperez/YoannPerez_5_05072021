@@ -1,7 +1,7 @@
 // Transform price of the product
 
 function formatPrice(p) {
-    formatedPrice = Number.parseFloat(p/100).toFixed(2);
+    formatedPrice = new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(Number.parseFloat(p/100).toFixed(2));
     return formatedPrice
 }
 

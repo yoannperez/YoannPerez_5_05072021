@@ -26,7 +26,7 @@ fetch("http://localhost:3000/api/cameras").then(data => data.json())
                                                                                 <div class="col-lg-8">
                                                                                     <h2 class="h2 ">${product.name}</h2>
                                                                                     <hr/>
-                                                                                    <p class="text-muted">Depuis ${price}€</p>
+                                                                                    <p class="text-muted">Depuis ${price}</p>
                                                                                     <p >${product.description}</p>
                                                                                     <hr/>
                                                                                     <div class="row">
