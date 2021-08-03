@@ -1,4 +1,4 @@
-let panier
+let panier;
 
 // Si le storage n'existe pas, le créer
 if (!localStorage.getItem("panier")){
@@ -11,7 +11,7 @@ if (!localStorage.getItem("panier")){
         let container = document.getElementById("panierContainer");
         
         //Create tab header
-        container.innerHTML += `<div class="container border rounded-2 shadow">
+        container.innerHTML += `<div class="container rounded-2 shadow">
                                     <table class="table ">
                                         <thead>
                                             <tr>
@@ -23,20 +23,24 @@ if (!localStorage.getItem("panier")){
                                                 <th scope="col">Prix total</th>
                                             </tr>
                                         </thead>
+                                        <tfoot>
+                                            <tr id=total>
+                                                
+                                            </tr>
+                                        </tfoot>
                                         <tbody id="tabBody">
                                         </tbody>
-                                        
+
                                     </table>
                                 </div>`
                                 ;
 
-        let toto = document.getElementById("tabBody");
+        let tab = document.getElementById("tabBody");
         
         for (let i in panier){
             let p = parseInt(i)+1;
             let totalArticle = parseInt(panier[i].priceProduct)*parseInt(panier[i].quantityProduct);
-                        
-            toto.innerHTML += `<tr>
+            tab.innerHTML += `<tr>
                                     <th scope="row">${p}</th>
                                     <td>${panier[i].nameProduct}</td>
                                     <td>${panier[i].optionProduct}</td>
@@ -45,12 +49,11 @@ if (!localStorage.getItem("panier")){
                                     <th scope="col">${formatPrice(totalArticle)}</th>
                                 </tr>`
         }
+        let totalLine = document.getElementById("total");
+        let totalPanier = totalCart();
+        totalLine.innerHTML += 
+                                `<th colspan="5" class="text-end" scope="col">Total Commande : </th>
+                                <th>${totalPanier}</th>`
     }
 
-                                            // <tr>
-                                            //     <th scope="row">2</th>
-                                            //     <td>Jacob</td>
-                                            //     <td>Thornton</td>
-                                            //     <td>@fat</td>
-                                            //     <th scope="col">Prix</th>
-                                            // </tr>
+    

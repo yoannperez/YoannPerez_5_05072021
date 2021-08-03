@@ -1,7 +1,7 @@
 // Transform price of the product
 
 function formatPrice(p) {
-    formatedPrice = new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(Number.parseFloat(p/100).toFixed(2));
+    formatedPrice = new Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR' }).format(Number.parseFloat(p/100).toFixed(2));
     return formatedPrice
 }
 
@@ -26,4 +26,12 @@ function getArticleById(id){
   }
 
 
+//Calcul du montant global du panier  
+const totalCart= ()=>{
+  let totalCommand = 0;
+  for (let i in panier){
+        totalCommand += parseInt(panier[i].priceProduct)*parseInt(panier[i].quantityProduct);
+  }
+  return formatPrice(totalCommand);
+}
 

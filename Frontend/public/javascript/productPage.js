@@ -177,11 +177,3 @@ function saveToLocal(product){
 //     
 //     }    
 // }
-const totalCart= ()=>{
-let total = 0;
-for (let i in panier){
-    total += panier[i].priceProduct;
-
-}
-console.log(total);
-}
