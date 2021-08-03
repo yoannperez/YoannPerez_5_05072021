@@ -2,9 +2,12 @@
 let params = new URL(document.location).searchParams;
 let id = params.get("id");
 
+//Définition du produit à ajouter au manier
+let productToAdd;
+
+
 //Défition de l'appel à l'API
 let objToCall = "http://localhost:3000/api/cameras/" + id;
-
 
 // -------------------------- Page management ---------------------------
 
@@ -81,51 +84,69 @@ function buildDom(articleToshow) {
           </div>
       
   `;
-// -------------------------- Events management ---------------------------
+  // -------------------------- Events management ---------------------------
   // Gestion de l'évènement click sur le bouton liste des produits.
   const returnBtn = document.getElementById("return");
   returnBtn.addEventListener("click", function () {
     window.open("./index.html", "_self");
   });
 
-  // Gestion de l'évènement click sur le bouton liste des produits.
+  // Event when clicking on save button.
   const addToCartBtn = document.getElementById("addToCart");
-  addToCartBtn.addEventListener("select", function (e) {
-    event.preventDefault();
-    window.alert("Le panier c'est chô ! ");
+  addToCartBtn.addEventListener("click", function (e) {
+    if (productToAdd === undefined || productToAdd.optionProduct =="Choisisez votre optique"){
+        window.alert("Veuillez Sélectionner une option")
+    }else{
+        saveToLocal(productToAdd);
+        
+    }
+    
   });
 
   //Listen witch option is selected
   const optionChoised = document.getElementById("optionSelected");
   optionChoised.addEventListener("change", () => {
-  refreshCart();    
+    refreshProduct();
   });
 
   //Listen Quantity selected
   const quantitySelected = document.getElementById("quantity");
   quantitySelected.addEventListener("change", () => {
-  refreshCart();    
+    refreshProduct();
   });
+  
+  // --- Get products informations
+  const refreshProduct = () => {
+        productToAdd = {
+        idProduct: product._id,
+        nameProduct: product.name,
+        priceProduct: product.price,
+        // optionProduct: optionChoised.value,
+        // quantityProduct: quantitySelected.value,
+    };
+    console.log(productToAdd)
+  };
+}
 
 // -------------------------- Cart management ---------------------------
+// Save this production in the Local Storage
+// -----------------------------------------------------
 
-// --- Get products informations
-const refreshCart = () =>{
-let productToAdd = {
-    nameProduct :product.name,
-    idProduct : product._id,
-    priceProduct :product.price,
-    optionProduct :optionChoised.value,
-    quantityProduct : quantitySelected.value
-};
-console.log(productToAdd);
+function saveToCart (products) {
+    let myProducts = getMyCart();
+    myProducts.push(products)
 }
 
-
-
-
-
-
-
-
+function getMyCart () {
+    let cartList = localStorage.getItem("myProducts");
+    if (myProducts == null){
+        return [];
+    }else{
+        return JSON.parse(myProducts)
+    }
 }
+
+function saveToLocal(objetToSave){
+    localStorage.setItem("cart", JSON.stringify(objetToSave));
+}
+
