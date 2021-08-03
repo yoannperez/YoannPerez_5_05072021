@@ -15,23 +15,27 @@
 
     <link rel="stylesheet" href="./style.css" />
 
-    <title>Orinoco - Acceuil</title>
+    <title>Orinoco - Panier</title>
   </head>
   <body>
     
       <!-- header-->
       <header>
-        <nav class="navbar navbar-expand fixed-top navbar-light bg-light rounded-2 shadow" aria-label="Navigation" >
+        <nav
+          class="navbar navbar-expand fixed-top navbar-light bg-light rounded-2 shadow"
+          aria-label="Navigation"
+        >
           <div class="container-fluid">
-            <a class="navbar-brand " href="#">
-              <img class="img-fluid" src="./public/img/15675819263013_image1.png" alt="Orinoco"/>
-            </a>
+            <a class="navbar-brand " href="index.html"
+              ><img
+                class="img-fluid"
+                src="./public/img/15675819263013_image1.png"
+                alt="Orinoco"
+            /></a>
             <div class="collapse navbar-collapse" id="navbarsExample02">
               <ul class="navbar-nav me-auto">
                 <li class="nav-item">
-                  <a class="nav-link active" aria-current="page" href="#"
-                    >Acceuil</a
-                  >
+                  <a class="nav-link" aria-current="page" href="#">Acceuil</a>
                 </li>
                 <li>
                   <a class="nav-link" aria-current="page" href="#">Produits</a>
@@ -39,7 +43,7 @@
               </ul>
               <ul class="navbar-nav">
                 <li>
-                  <a class="nav-link" aria-current="page" href="./panier.html"
+                  <a class="nav-link active" aria-current="page" href="#"
                     ><svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="24"
@@ -60,18 +64,20 @@
       
 
 
-      <div id="listProducts" class="container d-grid gap-3 p-3" >
-        <h1 class="fw-bold d-flex justify-content-center">Nos produits</h1>
+      <div id="panierContainer" class=".container d-grid gap-3 p-3">
+        <div class="row">
+            <h1 class="fw-bold d-flex justify-content-center">Panier</h1>
+        </div>
       </div>
     
-    <footer>
-      <nav class="navbar fixed-bottom justify-content-center navbar-light bg-light container-flex shadow">
-        <div class="row">
-          <div class="navbar-text">
-            <p>© Onorico - 2021</p>      
-          </div>
-       </nav>
-    </footer>
+      <footer>
+        <nav class="navbar fixed-bottom justify-content-center navbar-light bg-light container-flex shadow">
+          <div class="row">
+            <div class="navbar-text">
+              <p>© Onorico - 2021</p>      
+            </div>
+         </nav>
+      </footer>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
@@ -79,7 +85,7 @@
     ></script>
     <script src="./public/javascript/globalFunctions.js"></script>
     <script src="./public/javascript/article.js"></script>
-    <script src="./public/javascript/index.js"></script>
+    <script src="./public/javascript/panier.js"></script>
     
   </body>
 </html>

@@ -121,7 +121,7 @@ function buildDom(articleToshow) {
         idProduct: product._id,
         nameProduct: product.name,
         priceProduct: product.price,
-        // optionProduct: optionChoised.value,
+        optionProduct: optionChoised.value,
         quantityProduct: quantitySelected.value,
     };
     console.log("Produit à ajouter : ",productToAdd)
