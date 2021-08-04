@@ -21,6 +21,7 @@ if (!localStorage.getItem("panier")){
                                                 <th scope="col">Quantité</th>
                                                 <th scope="col">Prix unitaire</th>
                                                 <th scope="col">Prix total</th>
+                                                <th scope="col">Supprimer</th>
                                             </tr>
                                         </thead>
                                         <tfoot>
@@ -34,7 +35,7 @@ if (!localStorage.getItem("panier")){
                                     </table>
                                 </div>`
                                 ;
-
+        // Build tab body with informations saved in the local Storage
         let tab = document.getElementById("tabBody");
         
         for (let i in panier){
@@ -47,8 +48,11 @@ if (!localStorage.getItem("panier")){
                                     <td>${panier[i].quantityProduct}</td>
                                     <th scope="col">${formatPrice(panier[i].priceProduct)}</th>
                                     <th scope="col">${formatPrice(totalArticle)}</th>
+                                    <th scope="col"><button id="del-${i}" type="button" class="btn btn-warning">Supprimer</button></th>
                                 </tr>`
         }
+
+        // Build last row in tab with total cart
         let totalLine = document.getElementById("total");
         let totalPanier = totalCart();
         totalLine.innerHTML += 

@@ -116,13 +116,13 @@ function buildDom(articleToshow) {
           modalFooter.innerHTML += '<button id="cancel" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Retour</button>'
           modalFooter.innerHTML += '<button id="goIndex" type="button" class="btn btn-warning">Liste des articles</button>';
           modalFooter.innerHTML += '<button id="goCart" type="button" class="btn btn-danger">Aller au panier</button>';
-          document.getElementById("goCart").addEventListener('click', () =>{
+          document.getElementById("goCart").addEventListener('click', (e) =>{
               window.open("./panier.html", "_self");
-              stopPropagation();
+              e.stopPropagation();
               })
-          document.getElementById("goIndex").addEventListener('click', () =>{
+          document.getElementById("goIndex").addEventListener('click', (e) =>{
               window.open("./index.html", "_self");
-              stopPropagation();
+              e.stopPropagation();
               })
           
         }

@@ -41,3 +41,12 @@ function removeAllChildNodes(parent) {
       parent.removeChild(parent.firstChild);
   }
 }
+
+//Calcul du nombre d'artilces dans le panier  
+// const objectsInCart= ()=>{
+//   let totalInCart = 0;
+//   for (let i in panier){
+//       totalInCart += parseInt(panier[i].quantityProduct);
+//   }
+//   return totalInCart;
+// }
