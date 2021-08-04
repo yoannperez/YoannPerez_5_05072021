@@ -1,4 +1,6 @@
 let panier;
+//Show hox many products in cart
+nbProductsInCart();
 
 // Si le storage n'existe pas, le créer
 if (!localStorage.getItem("panier")){

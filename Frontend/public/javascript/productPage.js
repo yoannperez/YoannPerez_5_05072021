@@ -1,3 +1,6 @@
+//Show hox many products in cart
+nbProductsInCart();
+
 // Récupérer l'id contenu dans l'URL
 let params = new URL(document.location).searchParams;
 let id = params.get("id");

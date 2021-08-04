@@ -43,10 +43,17 @@ function removeAllChildNodes(parent) {
 }
 
 //Calcul du nombre d'artilces dans le panier  
-// const objectsInCart= ()=>{
-//   let totalInCart = 0;
-//   for (let i in panier){
-//       totalInCart += parseInt(panier[i].quantityProduct);
-//   }
-//   return totalInCart;
-// }
+const objectsInCart= ()=>{
+  let panier= JSON.parse(localStorage.getItem("panier"))
+  let totalInCart = 0;
+  for (let i in panier){
+      totalInCart += parseInt(panier[i].quantityProduct);
+  }
+  return totalInCart;
+}
+
+//Print numbers of products in cart
+const nbProductsInCart = () => {
+    let screen = document.getElementById("totalCart");
+    screen.innerText = objectsInCart();
+}
