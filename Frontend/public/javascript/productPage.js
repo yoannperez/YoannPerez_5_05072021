@@ -8,7 +8,8 @@ let productToAdd;
 
 //Défition de l'appel à l'API
 let objToCall = "http://localhost:3000/api/cameras/" + id;
-
+// Reload page to prevent troubles in option selector
+window.location.reload;
 // -------------------------- Page management ---------------------------
 
 fetch(objToCall)
@@ -77,7 +78,7 @@ function buildDom(articleToshow) {
                 <hr/ class="mt-3">  
                 <div class="row p-2">
                     <button id="return" type="button" class="btn btn-warning col-4 offset-1" >Liste des produits</button>
-                    <button id="addToCart" type="button" class="btn btn-danger col-4 offset-2" >Ajouter au panier</button>
+                    <button id="addToCart" type="button" class="btn btn-danger col-4 offset-2" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Ajouter au panier</button>
                 </div>
             </div>
           
@@ -94,12 +95,37 @@ function buildDom(articleToshow) {
   // Event when clicking on save button.
   const addToCartBtn = document.getElementById("addToCart");
   addToCartBtn.addEventListener("click", function (e) {
+    let modalFooter = document.querySelector(".modal-footer");
+    removeAllChildNodes(modalFooter)
     if (productToAdd === undefined || productToAdd.optionProduct =="Choisisez votre optique"){
-        window.alert("Veuillez Sélectionner une option")
-    }else{
-        saveToLocal(productToAdd);
+
+        // --------- Gestion de fenêtre Modale
+        document.getElementById("staticBackdropLabel").innerText="Nous avons un petit problème !";
+        document.querySelector(".modal-body").innerText ="Vous devez choisir une optique avant d'ajouter l'article au panier.";
+        modalFooter.innerHTML += '<button id="cancel" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Revenir sur la page</button>'
         
-    }
+        
+        } else {
+          // Save to lS
+          saveToLocal(productToAdd);
+          // Create Moal Page
+          document.getElementById("staticBackdropLabel").innerText="Félicitations";
+          document.querySelector(".modal-body").innerText ="Cet article a bien été ajouté au panier.";
+          
+          // Create "Aller au panier" Button
+          modalFooter.innerHTML += '<button id="cancel" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Retour</button>'
+          modalFooter.innerHTML += '<button id="goIndex" type="button" class="btn btn-warning">Liste des articles</button>';
+          modalFooter.innerHTML += '<button id="goCart" type="button" class="btn btn-danger">Aller au panier</button>';
+          document.getElementById("goCart").addEventListener('click', () =>{
+              window.open("./panier.html", "_self");
+              stopPropagation();
+              })
+          document.getElementById("goIndex").addEventListener('click', () =>{
+              window.open("./index.html", "_self");
+              stopPropagation();
+              })
+          
+        }
     
   });
 

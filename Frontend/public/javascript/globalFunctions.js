@@ -35,3 +35,9 @@ const totalCart= ()=>{
   return formatPrice(totalCommand);
 }
 
+//Delete all childs in one element
+function removeAllChildNodes(parent) {
+  while (parent.firstChild) {
+      parent.removeChild(parent.firstChild);
+  }
+}

@@ -15,7 +15,6 @@ fetch("http://localhost:3000/api/cameras").then(data => data.json())
                 for (let j in lenses) {
                     var listItem = document.createElement("li");
                     listItem.textContent = lenses[j];
-                    // listItem.classList.add("list-inline-item")
                     myLenses.appendChild(listItem);
                     }
 
