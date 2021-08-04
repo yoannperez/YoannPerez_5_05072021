@@ -57,3 +57,11 @@ const nbProductsInCart = () => {
     let screen = document.getElementById("totalCart");
     screen.innerText = objectsInCart();
 }
+
+// Erase a product in cart, update local storage, refresh cart page
+const eraseLine = (l) => {
+  let line = l;
+  panier.splice(line,1)
+  localStorage.setItem("panier", JSON.stringify(panier));
+  window.location.reload();
+  }

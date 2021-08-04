@@ -50,8 +50,11 @@ if (!localStorage.getItem("panier")){
                                     <td>${panier[i].quantityProduct}</td>
                                     <th scope="col">${formatPrice(panier[i].priceProduct)}</th>
                                     <th scope="col">${formatPrice(totalArticle)}</th>
-                                    <th scope="col"><button id="del-${i}" type="button" class="btn btn-warning">Supprimer</button></th>
+                                    <th scope="col"><button value='${i}' type="button" class="btn btn-warning del-button">Supprimer</button></th>
                                 </tr>`
+
+            
+            
         }
 
         // Build last row in tab with total cart
@@ -61,5 +64,25 @@ if (!localStorage.getItem("panier")){
                                 `<th colspan="5" class="text-end" scope="col">Total Commande : </th>
                                 <th>${totalPanier}</th>`
     }
+
+    // // localStorage.removeItem(key);
+    // let coco = document.querySelectorAll("sel");
+    // coco.addEventListener('click', (e) =>{
+    //    console.log(coco.value)
+    //     })
+
+
+    // Manage Supprimer button
+    let delButton = document.querySelectorAll(".del-button");
+    
+    for (let i = 0; i < delButton.length; i++){
+        
+        delButton[i].addEventListener("click", (event) => {
+            event.preventDefault;
+            eraseLine(i)
+        })
+
+    }
+
 
     

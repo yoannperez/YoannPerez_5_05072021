@@ -11,8 +11,7 @@ let productToAdd;
 
 //Défition de l'appel à l'API
 let objToCall = "http://localhost:3000/api/cameras/" + id;
-// Reload page to prevent troubles in option selector
-window.location.reload;
+
 // -------------------------- Page management ---------------------------
 
 fetch(objToCall)
@@ -176,7 +175,7 @@ function buildDom(articleToshow) {
 // }
 
 
-//---------------------------- Reprise --------------------------
+//----------------------  Deal With LocalStorage   --------------------------
 let panier
 
 // Si le storage n'existe pas, le créer
@@ -206,3 +205,4 @@ function saveToLocal(product){
 //     
 //     }    
 // }
+
