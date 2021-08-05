@@ -28,6 +28,7 @@ function getArticleById(id){
 
 //Calcul du montant global du panier  
 const totalCart= ()=>{
+  let panier= JSON.parse(localStorage.getItem("panier"))
   let totalCommand = 0;
   for (let i in panier){
         totalCommand += parseInt(panier[i].priceProduct)*parseInt(panier[i].quantityProduct);
@@ -55,6 +56,8 @@ const objectsInCart= ()=>{
 //Print numbers of products in cart
 const nbProductsInCart = () => {
     let screen = document.getElementById("totalCart");
+    let price = document.getElementById("totalPrice");
+    price.innerText = totalCart();
     screen.innerText = objectsInCart();
 }
 
