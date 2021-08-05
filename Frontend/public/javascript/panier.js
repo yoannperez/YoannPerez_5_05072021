@@ -47,7 +47,7 @@ if (!localStorage.getItem("panier")){
                                     <th scope="row">${p}</th>
                                     <td>${panier[i].nameProduct}</td>
                                     <td>${panier[i].optionProduct}</td>
-                                    <td>${panier[i].quantityProduct}</td>
+                                    <td><button value='${i}' type="button" class="btn btn-secondary dec"><</button> ${panier[i].quantityProduct} <button value='${i}' type="button" class="btn btn-secondary inc"> > </button></td>
                                     <th scope="col">${formatPrice(panier[i].priceProduct)}</th>
                                     <th scope="col">${formatPrice(totalArticle)}</th>
                                     <th scope="col"><button value='${i}' type="button" class="btn btn-warning del-button">Supprimer</button></th>
@@ -65,14 +65,9 @@ if (!localStorage.getItem("panier")){
                                 <th>${totalPanier}</th>`
     }
 
-    // // localStorage.removeItem(key);
-    // let coco = document.querySelectorAll("sel");
-    // coco.addEventListener('click', (e) =>{
-    //    console.log(coco.value)
-    //     })
+    // ------------------------- Cart Adjustments -------------------------------------
 
-
-    // Manage Supprimer button
+    // Manage "Supprimer" button
     let delButton = document.querySelectorAll(".del-button");
     
     for (let i = 0; i < delButton.length; i++){
@@ -84,5 +79,32 @@ if (!localStorage.getItem("panier")){
 
     }
 
+    // Manage increment button
+    let incButton = document.querySelectorAll(".inc");
 
+    for (let i = 0; i < incButton.length; i++){
+        
+            incButton[i].addEventListener("click", (event) => {
+            event.preventDefault;
+            panier[i].quantityProduct= parseInt(panier[i].quantityProduct) + 1;
+            localStorage.setItem("panier", JSON.stringify(panier));
+            window.location.reload();
+        })
+    }
+
+    // Manage increment button
+    let decButton = document.querySelectorAll(".dec");
+
+    for (let i = 0; i < decButton.length; i++){
+        if (panier[i].quantityProduct > 1){
+            decButton[i].addEventListener("click", (event) => {
+            event.preventDefault;
+            panier[i].quantityProduct= parseInt(panier[i].quantityProduct) - 1;
+            localStorage.setItem("panier", JSON.stringify(panier));
+            window.location.reload();})
+        
+        } else {
+            console.log("limit"); 
+        }
     
+    }
