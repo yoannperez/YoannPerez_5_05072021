@@ -94,23 +94,24 @@ function buildDom(articleToshow) {
     window.open("./index.html", "_self");
   });
 
-  // Event when clicking on save button.
+  // Event when clicking on "Ajouter au panier" button.
   const addToCartBtn = document.getElementById("addToCart");
   addToCartBtn.addEventListener("click", function (e) {
     let modalFooter = document.querySelector(".modal-footer");
     removeAllChildNodes(modalFooter)
+    // If an option is not selected, go back to product page
     if (productToAdd === undefined || productToAdd.optionProduct =="Choisisez votre optique"){
 
-        // --------- Gestion de fenêtre Modale
+        // ---------  Modale management
         document.getElementById("staticBackdropLabel").innerText="Nous avons un petit problème !";
         document.querySelector(".modal-body").innerText ="Vous devez choisir une optique avant d'ajouter l'article au panier.";
         modalFooter.innerHTML += '<button id="cancel" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Revenir sur la page</button>'
         
         
         } else {
-          // Save to lS
+          // if everything's fine,  Save selected product into localStorage
           saveToLocal(productToAdd);
-          // Create Moal Page
+          // Create Modal Page
           document.getElementById("staticBackdropLabel").innerText="Félicitations";
           document.querySelector(".modal-body").innerText ="Cet article a bien été ajouté au panier.";
           
@@ -125,6 +126,10 @@ function buildDom(articleToshow) {
           document.getElementById("goIndex").addEventListener('click', (e) =>{
               window.open("./index.html", "_self");
               e.stopPropagation();
+              })
+          document.getElementById("cancel").addEventListener('click', (e) =>{
+              e.stopPropagation();
+              window.location.reload();
               })
           
         }
@@ -152,7 +157,7 @@ function buildDom(articleToshow) {
         optionProduct: optionChoised.value,
         quantityProduct: quantitySelected.value,
     };
-    console.log("Produit à ajouter : ",productToAdd)
+    
   };
 }
 

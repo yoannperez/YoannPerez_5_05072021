@@ -43,7 +43,7 @@ fetch("http://localhost:3000/api/cameras").then(data => data.json())
                                                                                 <img class="col-lg-4 img-fluid img-thumbnail rounded mx-auto d-block shadow-sm myimage" src="${product.imageUrl}" alt="${product.name}">
                                                                             </div>
                                                                             <hr/>
-                                                                            <a href='article.html?id=${id}' class="row" style="text-decoration: none">
+                                                                            <a href='product.html?id=${id}' class="row" style="text-decoration: none">
                                                                                 <button type="button" class="btn btn-warning col-4 offset-4" >Voir le produit</button>
                                                                             </a>
                                                                         </article>
