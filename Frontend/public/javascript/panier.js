@@ -43,11 +43,11 @@ if (!localStorage.getItem("panier")){
         for (let i in panier){
             let p = parseInt(i)+1;
             let totalArticle = parseInt(panier[i].priceProduct)*parseInt(panier[i].quantityProduct);
-            tab.innerHTML += `<tr>
+            tab.innerHTML += `<tr class="align-middle" >
                                     <th scope="row">${p}</th>
                                     <td>${panier[i].nameProduct}</td>
                                     <td>${panier[i].optionProduct}</td>
-                                    <td><button value='${i}' type="button" class="btn btn-secondary dec"><</button> ${panier[i].quantityProduct} <button value='${i}' type="button" class="btn btn-secondary inc"> > </button></td>
+                                    <td><button value='${i}' type="button" class="btn btn-secondary dec"><</button> <input id="number" type="number" style="width: 2.5em;" readonly value="${panier[i].quantityProduct}"> <button value='${i}' type="button" class="btn btn-secondary inc"> > </button></td>
                                     <th scope="col">${formatPrice(panier[i].priceProduct)}</th>
                                     <th scope="col">${formatPrice(totalArticle)}</th>
                                     <th scope="col"><button value='${i}' type="button" class="btn btn-warning del-button">Supprimer</button></th>
