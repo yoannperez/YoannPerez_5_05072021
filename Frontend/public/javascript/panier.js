@@ -128,3 +128,5 @@ if (!localStorage.getItem("panier")){
         } 
     }
 
+   
+  
