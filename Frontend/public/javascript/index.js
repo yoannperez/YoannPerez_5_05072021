@@ -1,9 +1,13 @@
+// Load server's configuration file
+loadConfig().then(data => {
+    config = data;
+
 //Show hox many products in cart
 nbProductsInCart();
 
 // Gestion page d'acceuil
 
-fetch("http://localhost:3000/api/cameras").then(data => data.json())
+fetch(config.host + "/api/cameras").then(data => data.json())
         
         .then(jsonListArticle => {
             for (let jsonArticle of jsonListArticle) {
@@ -52,4 +56,4 @@ fetch("http://localhost:3000/api/cameras").then(data => data.json())
             }
         });
 
-        
+    })         

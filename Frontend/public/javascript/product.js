@@ -1,3 +1,7 @@
+// Load server's configuration file
+loadConfig().then(data => {
+  config = data;
+
 //Show hox many products in cart
 nbProductsInCart();
 
@@ -10,7 +14,7 @@ let productToAdd;
 
 
 //Défition de l'appel à l'API
-let objToCall = "http://localhost:3000/api/cameras/" + id;
+let objToCall = config.host + "/api/cameras/" + id;
 
 // -------------------------- Page management ---------------------------
 
@@ -213,3 +217,4 @@ function saveToLocal(product){
 //     }    
 // }
 
+})
