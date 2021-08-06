@@ -47,7 +47,7 @@ if (!localStorage.getItem("panier")){
                                     <th scope="row">${p}</th>
                                     <td>${panier[i].nameProduct}</td>
                                     <td>${panier[i].optionProduct}</td>
-                                    <td><button value='${i}' type="button" class="btn btn-secondary dec"><</button> <input id="number" type="number" style="width: 2.5em;" readonly value="${panier[i].quantityProduct}"> <button value='${i}' type="button" class="btn btn-secondary inc"> > </button></td>
+                                    <td><button value='${i}' type="button" class="btn btn-secondary dec"><</button> <input id="number" type="number" style="width: 2.7em;" readonly value="${panier[i].quantityProduct}"> <button value='${i}' type="button" class="btn btn-secondary inc"> > </button></td>
                                     <th scope="col">${formatPrice(panier[i].priceProduct)}</th>
                                     <th scope="col">${formatPrice(totalArticle)}</th>
                                     <th scope="col"><button value='${i}' type="button" class="btn btn-warning del-button" data-bs-toggle="modal" data-bs-target="#staticBackdrop" >Supprimer</button></th>

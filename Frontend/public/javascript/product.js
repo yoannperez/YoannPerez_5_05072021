@@ -97,6 +97,7 @@ function buildDom(articleToshow) {
   // Event when clicking on "Ajouter au panier" button.
   const addToCartBtn = document.getElementById("addToCart");
   addToCartBtn.addEventListener("click", function (e) {
+    e.stopPropagation;
     let modalFooter = document.querySelector(".modal-footer");
     removeAllChildNodes(modalFooter)
     // If an option is not selected, go back to product page
@@ -111,6 +112,7 @@ function buildDom(articleToshow) {
         } else {
           // if everything's fine,  Save selected product into localStorage
           saveToLocal(productToAdd);
+
           // Create Modal Page
           document.getElementById("staticBackdropLabel").innerText="Félicitations";
           document.querySelector(".modal-body").innerText ="Cet article a bien été ajouté au panier.";
