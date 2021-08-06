@@ -50,7 +50,7 @@ if (!localStorage.getItem("panier")){
                                     <td><button value='${i}' type="button" class="btn btn-secondary dec"><</button> <input id="number" type="number" style="width: 2.5em;" readonly value="${panier[i].quantityProduct}"> <button value='${i}' type="button" class="btn btn-secondary inc"> > </button></td>
                                     <th scope="col">${formatPrice(panier[i].priceProduct)}</th>
                                     <th scope="col">${formatPrice(totalArticle)}</th>
-                                    <th scope="col"><button value='${i}' type="button" class="btn btn-warning del-button">Supprimer</button></th>
+                                    <th scope="col"><button value='${i}' type="button" class="btn btn-warning del-button" data-bs-toggle="modal" data-bs-target="#staticBackdrop" >Supprimer</button></th>
                                 </tr>`
 
             
@@ -72,9 +72,32 @@ if (!localStorage.getItem("panier")){
     
     for (let i = 0; i < delButton.length; i++){
         
+
+        
+
+
+
         delButton[i].addEventListener("click", (event) => {
             event.preventDefault;
-            eraseLine(i)
+            let modalFooter = document.querySelector(".modal-footer");
+            removeAllChildNodes(modalFooter)                        
+            // // ---------  Modale management
+            document.getElementById("staticBackdropLabel").innerText=`Vous êtes sur le point de supprimer ${panier[i].nameProduct}`;
+            document.querySelector(".modal-body").innerText =`Avec l'option ${panier[i].optionProduct}. En êtes vous sûr ? `;
+            modalFooter.innerHTML += '<button id="cancel" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>';
+            modalFooter.innerHTML += '<button id="confirm" type="button" class="btn btn-warning">Confirmer</button>';  
+
+            document.getElementById("cancel").addEventListener('click', (e) =>{
+                e.stopPropagation();
+                // window.location.reload();
+                })
+
+            document.getElementById("confirm").addEventListener('click', (e) =>{
+                e.stopPropagation();
+                eraseLine(i)
+                })
+            
+            
         })
 
     }
