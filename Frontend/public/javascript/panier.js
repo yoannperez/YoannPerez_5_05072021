@@ -62,21 +62,17 @@ if (!localStorage.getItem("panier")){
         let totalPanier = totalCart();
         totalLine.innerHTML += 
                                 `<th colspan="5" class="text-end" scope="col">Total Commande : </th>
-                                <th>${totalPanier}</th>`
+                                <th>${totalPanier}</th>
+                                <th><button type="button" id="emptyCart" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Vider le Panier</button></th>`
     }
 
     // ------------------------- Cart Adjustments -------------------------------------
 
-    // Manage "Supprimer" button
+    // Manage "Supprimer" button for each product
     let delButton = document.querySelectorAll(".del-button");
     
     for (let i = 0; i < delButton.length; i++){
-        
-
-        
-
-
-
+    
         delButton[i].addEventListener("click", (event) => {
             event.preventDefault;
             let modalFooter = document.querySelector(".modal-footer");
@@ -128,5 +124,32 @@ if (!localStorage.getItem("panier")){
         } 
     }
 
+    // Manage "Vider Panier" Button
+    let emptyCart = document.getElementById("emptyCart");
+
+    emptyCart.addEventListener("click", (e) => {
+        e.preventDefault;
+        e.stopPropagation();
+        
+
+        // Call Modal Window
+        let modalFooter = document.querySelector(".modal-footer");
+        console.log(modalFooter);
+        removeAllChildNodes(modalFooter)                        
+            // // ---------  Modale management
+            document.getElementById("staticBackdropLabel").innerText=`Attention !`;
+            document.querySelector(".modal-body").innerText =`Vous êtes sur le point de vider le panier. En êtes vous sûr ? `;
+            modalFooter.innerHTML += '<button id="cancel" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>';
+            modalFooter.innerHTML += '<button id="confirm" type="button" class="btn btn-warning">Confirmer</button>';  
+
+            document.getElementById("cancel").addEventListener('click', (e) =>{
+                e.stopPropagation();
+                })
+            document.getElementById("confirm").addEventListener('click', (e) =>{
+                e.stopPropagation();
+                localStorage.removeItem("panier");
+                window.location.reload();
+                })
+    })
    
   

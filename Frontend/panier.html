@@ -59,7 +59,7 @@
                     * -->
       <div class="container">
         <hr class="my-5">
-            <div class="row">
+            <div class="row shadow p-3">
               <h4 class="mb-3">Adresse de livraison</h4>
               <form class="needs-validation" novalidate>
                 <div class="row g-3">
@@ -70,17 +70,13 @@
                       Un prénom valide est requis.
                     </div>
                   </div>
-
                   <div class="col-sm-6">
                     <label for="lastName" class="form-label">Nom de famille</label>
-                    <input type="text" class="form-control" id="lastName" placeholder="Dupont" pattern="[a-z]{1,15}" value="" required>
+                    <input type="text" class="form-control" id="lastName" placeholder="Dupont"  value="" required>
                     <div class="invalid-feedback">
                       Un nom de famille est requis.
                     </div>
                   </div>
-
-                  
-                 
                   <div class="col-12">
                     <label for="address" class="form-label">Adresse</label>
                     <input type="text" class="form-control" id="address" placeholder="21 rue de la Paix" required>
@@ -103,7 +99,7 @@
                     </div>
                   </div>
 
-                  <button class="w-100 btn btn-primary btn-lg my-4 needs-validation" type="submit">Passer commande</button>
+                  <button class="w-50 offset-3 btn btn-primary btn-lg my-4" type="submit">Passer commande</button>
                 </div> 
               </form> <!--    Formulaire    --> 
             </div>  
