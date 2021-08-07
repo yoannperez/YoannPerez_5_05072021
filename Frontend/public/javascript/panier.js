@@ -143,9 +143,11 @@ if (!localStorage.getItem("panier")){
             modalFooter.innerHTML += '<button id="confirm" type="button" class="btn btn-warning">Confirmer</button>';  
 
             document.getElementById("cancel").addEventListener('click', (e) =>{
+                e.preventDefault;
                 e.stopPropagation();
                 })
             document.getElementById("confirm").addEventListener('click', (e) =>{
+                e.preventDefault;
                 e.stopPropagation();
                 localStorage.removeItem("panier");
                 window.location.reload();
