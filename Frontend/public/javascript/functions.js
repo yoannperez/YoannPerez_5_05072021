@@ -68,3 +68,12 @@ const eraseLine = (l) => {
   localStorage.setItem("panier", JSON.stringify(panier));
   window.location.reload();
   }
+
+// Create list of id products and save it before sending cart to server
+const productsToSend = () => {
+  let pack =[];
+  for (let i in panier) {
+    pack.push(panier[i].idProduct)
+    }
+  return pack
+}

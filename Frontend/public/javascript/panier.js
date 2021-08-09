@@ -5,7 +5,7 @@ nbProductsInCart();
 // Si le storage n'existe pas, le créer
 if (!localStorage.getItem("panier")){
     let container = document.getElementById("panierContainer");
-    container.innerHTML += `<h1 class="fw-bold d-flex justify-content-center"> Votre panier est vide <h1>`
+    container.innerHTML += `<h1 class="fw-bold d-flex justify-content-center"> Le panier est vide... <h1>`
     } 
      // si le panier existe le charger dans le tableau   
     else {
