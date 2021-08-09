@@ -39,14 +39,12 @@ let messageFinal;
           if (!form.checkValidity()) {
                                         event.preventDefault()
                                         event.stopPropagation()
-                                        messageFinal = getContactList();
                                         
-                                      
-                                      
-                                      
-                                      
                                         } else {
-                                          
+                                          event.preventDefault()
+                                          event.stopPropagation()
+                                          messageFinal = getContactList();
+                                          sendPanier(messageFinal)
                                         }
           form.classList.add('was-validated')
           }, 
@@ -57,49 +55,41 @@ let messageFinal;
  })()
 
 let getContactList = () => {
+  // Let create contact informations
+  let contact = {
+      firstName : firstName,
+      lastName : lastName,
+      address : address,
+      city : city,
+      email : email,
+    }
 
+  // Create list of id products and save it in products var
+  let products = productsToSend ();
 
-// Create contact informations
-
-let contact = {
-    firstName : firstName,
-    lastName : lastName,
-    adress : address,
-    city : city,
-    email : email,
-  }
-// console.log(contact)
-
-// Create list of id products and save it in products var
-let products = productsToSend ();
-
-let toSend = {contact, products}
-// console.log("message : ", toSend)
-
-return toSend
-
+  let toSend = {contact, products}
+  return toSend
 }
 
 function sendPanier(toSend){
   fetch("http://localhost:3000/api/cameras/order", {
-method: "POST",
-headers: { 
-'Accept': 'application/json', 
-'Content-Type': 'application/json' },
-body: JSON.stringify(toSend)})
-  .then(function (res) {
-      if (res.ok) {
-        return res.json();
-      }
-    })
-    .then(function (value) {
-      let whatisthat = value;
-      console.log(whatisthat); 
-      alert(whatisthat.orderId);   
-    })
-    .catch(function (err) {
-      window.alert("Erreur de connection réseau");
-    });;
+  method: "POST",
+  headers: { 
+  'Accept': 'application/json', 
+  'Content-Type': 'application/json' },
+  body: JSON.stringify(toSend)})
+    .then(function (res) {
+        if (res.ok) {
+          return res.json();
+        }
+      })
+      .then(function (value) {
+        let whatisthat = value;
+        alert(whatisthat.orderId);   
+      })
+      .catch(function (err) {
+        window.alert("Erreur de connection réseau");
+      });;
 
 }
  
