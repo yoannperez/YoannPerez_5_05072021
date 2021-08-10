@@ -77,7 +77,7 @@ function buildDom(articleToshow) {
                   <div class="col-5 offset-1 ">
                   <form>
                   <label for="quantity"> Quantité : </label>
-                  <input type="number" id="quantity" name="quantity" min="1" value="1"/>  
+                  <input type="number" style="width: 2.7em" id="quantity" name="quantity" min="1" value="1"/>  
                   </form>
                   </div>
                 </div>

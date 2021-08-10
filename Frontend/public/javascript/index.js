@@ -34,10 +34,10 @@ fetch(config.host + "/api/cameras").then(data => data.json())
                                                                             <p >${product.description}</p>
                                                                             <hr/>
                                                                             <div class="row">
-                                                                                <div class="col-3">
+                                                                                <div class="col-12 col-md-4">
                                                                                 <p>Options disponibles: <p>
                                                                                 </div>
-                                                                                <div class="col-6 ">
+                                                                                <div class="col-12 col-md-6">
                                                                                 ${myLenses.outerHTML}
                                                                                 </div>
                                                                             </div>
@@ -46,7 +46,7 @@ fetch(config.host + "/api/cameras").then(data => data.json())
                                                                             </div>
                                                                             <hr/>
                                                                         <a href='product.html?id=${id}' class="row" style="text-decoration: none">
-                                                                        <button type="button" class="btn btn-warning col-4 offset-4" >Voir le produit</button>
+                                                                        <button type="button" class="btn btn-warning col-xs-12 col-md-6 offset-md-3" >Voir le produit</button>
                                                                     </a>
                                                                 </article>
                                                                     `;

@@ -20,9 +20,9 @@ if (!localStorage.getItem("panier")){
                                                 <th scope="col">#</th>
                                                 <th scope="col">Article</th>
                                                 <th scope="col">Option</th>
-                                                <th scope="col">Quantité</th>
-                                                <th scope="col">Prix unitaire</th>
-                                                <th scope="col">Prix total</th>
+                                                <th scope="col">Quant.</th>
+                                                <th scope="col">P.U.</th>
+                                                <th scope="col">P.Total</th>
                                                 <th scope="col">Supprimer</th>
                                             </tr>
                                         </thead>
@@ -47,10 +47,10 @@ if (!localStorage.getItem("panier")){
                                     <th scope="row">${p}</th>
                                     <td>${panier[i].nameProduct}</td>
                                     <td>${panier[i].optionProduct}</td>
-                                    <td><button value='${i}' type="button" class="btn btn-secondary dec"><</button> <input id="number" type="number" style="width: 2.7em;" readonly value="${panier[i].quantityProduct}"> <button value='${i}' type="button" class="btn btn-secondary inc"> > </button></td>
+                                    <td><button value='${i}' type="button" class="btn btn-secondary d-none d-lg-inline dec btn-sm"><</button> <input id="number" type="number" style="width: 2.7em;" readonly value="${panier[i].quantityProduct}"> <button value='${i}' type="button" class="btn btn-secondary btn-sm inc d-none d-lg-inline"> > </button></td>
                                     <th scope="col">${formatPrice(panier[i].priceProduct)}</th>
                                     <th scope="col">${formatPrice(totalArticle)}</th>
-                                    <th scope="col"><button value='${i}' type="button" class="btn btn-warning del-button" data-bs-toggle="modal" data-bs-target="#staticBackdrop" >Supprimer</button></th>
+                                    <th scope="col"><button value='${i}' type="button" class="btn btn-warning del-button btn-sm" data-bs-toggle="modal" data-bs-target="#staticBackdrop" >Supprimer</button></th>
                                 </tr>`
 
             
@@ -63,7 +63,7 @@ if (!localStorage.getItem("panier")){
         totalLine.innerHTML += 
                                 `<th colspan="5" class="text-end" scope="col">Total Commande : </th>
                                 <th>${totalPanier}</th>
-                                <th><button type="button" id="emptyCart" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Vider le Panier</button></th>`
+                                <th><button type="button" id="emptyCart" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Vider le Panier</button></th>`
     }
 
     // ------------------------- Cart Adjustments -------------------------------------
