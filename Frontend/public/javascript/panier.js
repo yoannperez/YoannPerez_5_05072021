@@ -2,10 +2,12 @@ let panier;
 //Show hox many products in cart
 nbProductsInCart();
 
-// Si le storage n'existe pas, le créer
+// If LocalStorage doesn't exist, we have to create it!
 if (!localStorage.getItem("panier")){
     let container = document.getElementById("panierContainer");
     container.innerHTML += `<h1 class="fw-bold d-flex justify-content-center"> Le panier est vide... <h1>`
+    // and don't show Contact form
+    document.getElementById("form").style.display = "none";
     } 
      // si le panier existe le charger dans le tableau   
     else {
@@ -77,7 +79,7 @@ if (!localStorage.getItem("panier")){
             event.preventDefault;
             let modalFooter = document.querySelector(".modal-footer");
             removeAllChildNodes(modalFooter)                        
-            // // ---------  Modale management
+            // // ---------  Modal window management
             document.getElementById("staticBackdropLabel").innerText=`Vous êtes sur le point de supprimer ${panier[i].nameProduct}`;
             document.querySelector(".modal-body").innerText =`Avec l'option ${panier[i].optionProduct}. En êtes vous sûr ? `;
             modalFooter.innerHTML += '<button id="cancel" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>';
