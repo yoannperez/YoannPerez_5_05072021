@@ -7,7 +7,7 @@ nbProductsInCart();
 
 // Gestion page d'acceuil
 
-fetch(config.host + "/api/cameras").then(data => data.json())
+fetch("http://localhost:3000/api/cameras").then(data => data.json())
     .then(jsonListArticle => {
         for (let jsonArticle of jsonListArticle) {
             let product = new Article(jsonArticle);

@@ -55,21 +55,21 @@
                 <div class="row g-3">
                   <div class="col-sm-6">
                     <label for="firstName" class="form-label">Prénom</label>
-                    <input type="text" class="form-control" id="firstName" placeholder="ex: Jean"  value="" required>
+                    <input type="text" class="form-control" id="firstName" pattern="[a-z, A-Z]{1,15}" placeholder="ex: Jean"  value="" required>
                     <div class="invalid-feedback">
                       Un prénom valide est requis.
                     </div>
                   </div>
                   <div class="col-sm-6">
                     <label for="lastName" class="form-label">Nom de famille</label>
-                    <input type="text" class="form-control" id="lastName" placeholder="ex: Dupont"  value="" required>
+                    <input type="text" class="form-control" id="lastName" pattern="[a-z, A-Z]{1,15}" placeholder="ex: Dupont"  value="" required>
                     <div class="invalid-feedback">
                       Un nom de famille est requis.
                     </div>
                   </div>
                   <div class="col-12">
                     <label for="address" class="form-label">Adresse</label>
-                    <input type="text" class="form-control" id="address" placeholder="ex: 21 rue de la Paix" value="" required>
+                    <input type="text" class="form-control" id="address"  placeholder="ex: 21 rue de la Paix" value="" required>
                     <div class="invalid-feedback">
                       Veuillez indiquer votre adresse.
                     </div>

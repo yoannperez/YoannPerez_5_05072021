@@ -14,7 +14,7 @@ let productToAdd;
 
 
 //Défition de l'appel à l'API
-let objToCall = config.host + "/api/cameras/" + id;
+let objToCall = "http://localhost:3000/api/cameras/" + id;
 
 // -------------------------- Page management ---------------------------
 

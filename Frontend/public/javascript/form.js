@@ -78,7 +78,7 @@ let getContactList = () => {
 }
 
 function sendPanier(toSend){
-  fetch(config.host + "/api/cameras/order", {
+  fetch("http://localhost:3000/api/cameras/order", {
   method: "POST",
   headers: { 
   'Accept': 'application/json', 
