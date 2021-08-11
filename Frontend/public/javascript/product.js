@@ -1,8 +1,4 @@
-// Load server's configuration file
-loadConfig().then(data => {
-  config = data;
-
-//Show hox many products in cart
+//Show hox many products in cart when loading the page
 nbProductsInCart();
 
 // Récupérer l'id contenu dans l'URL
@@ -167,25 +163,6 @@ function buildDom(articleToshow) {
   };
 }
 
-// -------------------------- Cart management ---------------------------
-// Save this production in the Local Storage
-// -----------------------------------------------------
-
-// function saveToCart (products) {
-//     let myProducts = getMyCart();
-//     myProducts.push(products)
-// }
-
-// function getMyCart () {
-//     let cartList = localStorage.getItem("myProducts");
-//     if (myProducts == null){
-//         return [];
-//     }else{
-//         return JSON.parse(myProducts)
-//     }
-// }
-
-
 //----------------------  Deal With LocalStorage   --------------------------
 let panier
 
@@ -207,14 +184,3 @@ function saveToLocal(product){
     localStorage.setItem("panier", JSON.stringify(panier));
 }
 
-// function conditions(){
-//     for (i in panierTableau){
-//         if (i.idProduct === objetToSave.idProduct){
-//             alert("Ce produit existe déjà")
-//         }else {
-//     panierTableau.push(productToAdd)}
-//     
-//     }    
-// }
-
-})

@@ -1,5 +1,6 @@
+// Define Cart variable
 let panier;
-//Show hox many products in cart
+//Show hox many products in cart when loading the page
 nbProductsInCart();
 
 // If LocalStorage doesn't exist, we have to create it!
@@ -9,7 +10,7 @@ if (!localStorage.getItem("panier")){
     // and don't show Contact form
     document.getElementById("form").style.display = "none";
     } 
-     // si le panier existe le charger dans le tableau   
+    // If cart exist, we load it in panier var   
     else {
         panier= JSON.parse(localStorage.getItem("panier"))
         let container = document.getElementById("panierContainer");
@@ -41,7 +42,7 @@ if (!localStorage.getItem("panier")){
                                 ;
         // Build tab body with informations saved in the local Storage
         let tab = document.getElementById("tabBody");
-        
+        // Create tab rows
         for (let i in panier){
             let p = parseInt(i)+1;
             let totalArticle = parseInt(panier[i].priceProduct)*parseInt(panier[i].quantityProduct);
@@ -58,7 +59,6 @@ if (!localStorage.getItem("panier")){
             
             
         }
-
         // Build last row in tab with total cart
         let totalLine = document.getElementById("total");
         let totalPanier = totalCart();
@@ -68,58 +68,58 @@ if (!localStorage.getItem("panier")){
                                 <th><button type="button" id="emptyCart" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Vider le Panier</button></th>`
     }
 
-    // ------------------------- Cart Adjustments -------------------------------------
+// ------------------------- Cart Events Management -------------------------------------
 
-    // Manage "Supprimer" button for each product
+    // ----------- Manage "Supprimer" button for each product -------------------
+    // Pointing all buttons in tab
     let delButton = document.querySelectorAll(".del-button");
-    
+    // Looping the DOM to reach every instance of the button
     for (let i = 0; i < delButton.length; i++){
-    
+        // When clicing a button
         delButton[i].addEventListener("click", (event) => {
             event.preventDefault;
+            // Find modal windows composant
             let modalFooter = document.querySelector(".modal-footer");
             removeAllChildNodes(modalFooter)                        
-            // // ---------  Modal window management
+            // // ---------  Modal window management (create modal's footer buttons)
             document.getElementById("staticBackdropLabel").innerText=`Vous êtes sur le point de supprimer ${panier[i].nameProduct}`;
             document.querySelector(".modal-body").innerText =`Avec l'option ${panier[i].optionProduct}. En êtes vous sûr ? `;
             modalFooter.innerHTML += '<button id="cancel" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>';
             modalFooter.innerHTML += '<button id="confirm" type="button" class="btn btn-warning">Confirmer</button>';  
-
+            // In case of clicking cancel button
             document.getElementById("cancel").addEventListener('click', (e) =>{
                 e.stopPropagation();
                 // window.location.reload();
                 })
-
+            // In case of clicking confirm button, deleting the row
             document.getElementById("confirm").addEventListener('click', (e) =>{
                 e.stopPropagation();
                 eraseLine(i)
                 })
-            
-            
         })
-
     }
 
     // Manage increment button
     let incButton = document.querySelectorAll(".inc");
-
+    // Looping the DOM to reach every instance of the button
     for (let i = 0; i < incButton.length; i++){
-        
             incButton[i].addEventListener("click", (event) => {
             event.preventDefault;
+            // Add one article
             panier[i].quantityProduct= parseInt(panier[i].quantityProduct) + 1;
             localStorage.setItem("panier", JSON.stringify(panier));
             window.location.reload();
         })
     }
 
-    // Manage increment button
+    // Manage decriment button
     let decButton = document.querySelectorAll(".dec");
-
+    // Looping the DOM to reach every instance of the button
     for (let i = 0; i < decButton.length; i++){
         if (panier[i].quantityProduct > 1){
             decButton[i].addEventListener("click", (event) => {
             event.preventDefault;
+            // substract one article in the row 
             panier[i].quantityProduct= parseInt(panier[i].quantityProduct) - 1;
             localStorage.setItem("panier", JSON.stringify(panier));
             window.location.reload();})
@@ -132,26 +132,27 @@ if (!localStorage.getItem("panier")){
     emptyCart.addEventListener("click", (e) => {
         e.preventDefault;
         e.stopPropagation();
-        
-
-        // Call Modal Window
+        // Call Modal Window for confirmation
         let modalFooter = document.querySelector(".modal-footer");
-        console.log(modalFooter);
+        // removing all child element in Modal window's footer before creating buttons
         removeAllChildNodes(modalFooter)                        
-            // // ---------  Modale management
+            // // ---------  Modale window management
             document.getElementById("staticBackdropLabel").innerText=`Attention !`;
             document.querySelector(".modal-body").innerText =`Vous êtes sur le point de vider le panier. En êtes vous sûr ? `;
             modalFooter.innerHTML += '<button id="cancel" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>';
             modalFooter.innerHTML += '<button id="confirm" type="button" class="btn btn-warning">Confirmer</button>';  
-
+            // In case of clicking cancel button
             document.getElementById("cancel").addEventListener('click', (e) =>{
                 e.preventDefault;
                 e.stopPropagation();
                 })
+            // In case of clicking confirm button
             document.getElementById("confirm").addEventListener('click', (e) =>{
                 e.preventDefault;
                 e.stopPropagation();
+                // Delete cart in LocalStorage
                 localStorage.removeItem("panier");
+                // Refresh the page
                 window.location.reload();
                 })
     })

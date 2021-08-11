@@ -1,11 +1,5 @@
-// Adjust backend adress with config file
-loadConfig().then(data => {
-  config = data;
-})
-
+// Define Variables
 let sResponse
-
-// Variables
 var firstName;
 document.getElementById("firstName").oninput = () => {
   firstName = document.getElementById("firstName").value;
@@ -33,7 +27,7 @@ document.getElementById("email").oninput = () => {
 
 
  // Example starter JavaScript for disabling form submissions if there are invalid fields
- (function formValid () {
+(function formValid () {
     'use strict'
   
     // Fetch all the forms we want to apply custom Bootstrap validation styles to

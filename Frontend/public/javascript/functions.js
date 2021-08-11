@@ -1,11 +1,10 @@
-// Transform price of the product
-
+// Get product price in Euro
 function formatPrice(p) {
     formatedPrice = new Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR' }).format(Number.parseFloat(p/100).toFixed(2));
     return formatedPrice
 }
 
-// Appel d'un objet par son id
+// Call one object with id
 function getArticleById(id){
     let objToCall = "http://localhost:3000/api/cameras/"+id;
     console.log(objToCall);
@@ -26,8 +25,8 @@ function getArticleById(id){
   }
 
 
-//Calcul du montant global du panier  
-const totalCart= ()=>{
+//Calc total in cart 
+const totalCart= () => {
   let panier= JSON.parse(localStorage.getItem("panier"))
   let totalCommand = 0;
   for (let i in panier){
@@ -43,7 +42,7 @@ function removeAllChildNodes(parent) {
   }
 }
 
-//Calcul du nombre d'artilces dans le panier  
+//Calc how many articles in Cart  
 const objectsInCart= ()=>{
   let panier= JSON.parse(localStorage.getItem("panier"))
   let totalInCart = 0;
