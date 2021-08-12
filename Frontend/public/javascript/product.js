@@ -54,43 +54,38 @@ function buildDom(articleToshow) {
     myLenses.appendChild(listItem);
   }
 
-  document.querySelector("#productContainer").innerHTML += `
-      <article class="container bg-light border rounded-2 shadow p-4">
-      <div class="row p-2">
-      <img class="col-lg-4 img-fluid img-thumbnail rounded mx-auto d-block shadow-sm myimage" src="${product.imageUrl}" alt="${product.name}">
-      </div>
-      <div class="row p-2">
-            
-            <div class="col-lg-12">
-                <h2 class="h2 ">${product.name}</h2>
-                <hr/>
-                <p class="text-muted">Depuis ${price}</p>
-                <p >${product.description}</p>
-                <hr/ class="mt-3"> 
-                <div class="row">
-                  <div class="col-3">
-                    <p>Personalisez votre appareil : <p>
-                  </div>
-                  <div class="col-3 ">
-                    ${myLenses.outerHTML}
-                  </div>
-                  <div class="col-5 offset-1 ">
-                  <form>
-                  <label for="quantity"> Quantité : </label>
-                  <input type="number" style="width: 2.7em" id="quantity" name="quantity" min="1" value="1"/>  
-                  </form>
-                  </div>
-                </div>
-                <hr/ class="mt-3">  
-                <div class="row p-2">
-                    <button id="return" type="button" class="btn btn-warning col-4 offset-1" >Liste des produits</button>
-                    <button id="addToCart" type="button" class="btn btn-danger col-4 offset-2" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Ajouter au panier</button>
-                </div>
-            </div>
-          
-          </div>
-      
-  `;
+  document.querySelector("#productContainer").innerHTML += `<article class="container bg-light border rounded-2 shadow p-4">
+                                                            <div class="row p-2">
+                                                            <img class="col-lg-4 img-fluid img-thumbnail rounded mx-auto d-block shadow-sm myimage" src="${product.imageUrl}" alt="${product.name}">
+                                                            </div>
+                                                            <div class="row p-2">
+                                                                <div class="col-lg-12">
+                                                                      <h2 class="h2 ">${product.name}</h2>
+                                                                      <hr/>
+                                                                      <p class="text-muted">Depuis ${price}</p>
+                                                                      <p >${product.description}</p>
+                                                                      <hr/ class="mt-3"> 
+                                                                      <div class="row">
+                                                                        <div class="col-3">
+                                                                          <p>Personalisez votre appareil : <p>
+                                                                        </div>
+                                                                        <div class="col-3 ">
+                                                                          ${myLenses.outerHTML}
+                                                                        </div>
+                                                                        <div class="col-5 offset-1 ">
+                                                                        <form>
+                                                                        <label for="quantity"> Quantité : </label>
+                                                                        <input type="number" style="width: 2.7em" id="quantity" name="quantity" min="1" value="1"/>  
+                                                                        </form>
+                                                                        </div>
+                                                                      </div>
+                                                                      <hr/ class="mt-3">  
+                                                                      <div class="row p-2">
+                                                                          <button id="return" type="button" class="btn btn-warning col-4 offset-1" >Liste des produits</button>
+                                                                          <button id="addToCart" type="button" class="btn btn-danger col-4 offset-2" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Ajouter au panier</button>
+                                                                      </div>
+                                                                </div>
+                                                            </div>`;
 
   // -------------------------- Events on page Management ---------------------------
   // Gestion de l'évènement click sur le bouton liste des produits.
@@ -161,17 +156,15 @@ function buildDom(articleToshow) {
     refreshProduct();
   });
   
-  // --- Get products informations
+  // --- Get products informations before adding into cart
   const refreshProduct = () => {
-        productToAdd = {
-        idProduct: product._id,
-        nameProduct: product.name,
-        priceProduct: product.price,
-        optionProduct: optionChoised.value,
-        quantityProduct: quantitySelected.value,
-    };
-    
-  };
+  productToAdd = {
+  idProduct: product._id,
+  nameProduct: product.name,
+  priceProduct: product.price,
+  optionProduct: optionChoised.value,
+  quantityProduct: quantitySelected.value,
+};
+};
 }
-
 callApi(infoToCall);

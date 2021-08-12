@@ -44,7 +44,7 @@ document.getElementById("email").oninput = () => {
                                         } else {
                                           event.preventDefault()
                                           event.stopPropagation()
-                                          let messageFinal = getContactList();
+                                          let messageFinal = prepareMessageToSend();
                                           sendPanier(messageFinal)
                                         }
           form.classList.add('was-validated')
@@ -55,7 +55,7 @@ document.getElementById("email").oninput = () => {
       })
  })()
 
-let getContactList = () => {
+let prepareMessageToSend = () => {
   // Let create contact informations
   let contact = {
       firstName : firstName,
@@ -80,6 +80,7 @@ function sendPanier(toSend){
   body: JSON.stringify(toSend)})
     .then(function (res) {
         if (res.ok) {
+          console.log("Message Post OK")
           return res.json();
         }
       })
@@ -93,7 +94,6 @@ function sendPanier(toSend){
       .catch(function (err) {
         window.alert("Erreur de connection réseau");
       });;
-
 }
 
 

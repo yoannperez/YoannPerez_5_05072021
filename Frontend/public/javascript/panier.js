@@ -40,6 +40,8 @@ if (!localStorage.getItem("panier")){
                                     </table>
                                 </div>`
                                 ;
+        
+        const buildRow = () => {
         // Build tab body with informations saved in the local Storage
         let tab = document.getElementById("tabBody");
         // Create tab rows
@@ -55,16 +57,13 @@ if (!localStorage.getItem("panier")){
                                     <th scope="col">${formatPrice(totalArticle)}</th>
                                     <th scope="col"><button value='${i}' type="button" class="btn btn-warning del-button btn-sm" data-bs-toggle="modal" data-bs-target="#staticBackdrop" >Supprimer</button></th>
                                 </tr>`
+        }}
+        buildRow();
 
-            
-            
-        }
         // Build last row in tab with total cart
         let totalLine = document.getElementById("total");
-        let totalPanier = totalCart();
-        totalLine.innerHTML += 
-                                `<th colspan="5" class="text-end" scope="col">Total Commande : </th>
-                                <th>${totalPanier}</th>
+        totalLine.innerHTML += `<th colspan="5" class="text-end" scope="col">Total Commande : </th>
+                                <th>${totalCart()}</th>
                                 <th><button type="button" id="emptyCart" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Vider le Panier</button></th>`
     }
 
