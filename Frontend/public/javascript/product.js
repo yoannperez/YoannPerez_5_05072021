@@ -7,30 +7,31 @@ let id = params.get("id");
 
 // Var declaration
 let productToAdd;
-let infoToCall="http://localhost:3000/api/cameras/" + id;
+let infoToCall = "http://localhost:3000/api/cameras/" + id;
 
 // -------------------------- Page management ---------------------------
 // Calling API
 
 const callApi = (adress) => {
-fetch(adress)
-  // In case evethings fine, return datas
-  .then(function (res) {
-    if (res.ok) {
-      return res.json();
-    }
-  })
-  // Then store datas into var article, then call buildDom fonction
-  .then(function (value) {
-    let article = value;
-    buildDom(article);
-  })
-  // In case of no response, print a message in an alert box
-  .catch(function (err) {
-    window.alert("Erreur de connection réseau, nous n'avons pas pu communiquer avec le serveur. Veuillez vérifier votre configuration.");
-  });
-}
-
+  fetch(adress)
+    // In case evethings fine, return datas
+    .then(function (res) {
+      if (res.ok) {
+        return res.json();
+      }
+    })
+    // Then store datas into var article, then call buildDom fonction
+    .then(function (value) {
+      let article = value;
+      buildDom(article);
+    })
+    // In case of no response, print a message in an alert box
+    .catch(function (err) {
+      window.alert(
+        "Erreur de connection réseau, nous n'avons pas pu communiquer avec le serveur. Veuillez vérifier votre configuration."
+      );
+    });
+};
 
 function buildDom(articleToshow) {
   let product = articleToshow;
@@ -38,6 +39,7 @@ function buildDom(articleToshow) {
 
   // Extract lenses list
   let lenses = product.lenses;
+
   let myLenses = document.createElement("select");
   myLenses.classList.add("form-select");
   myLenses.setAttribute("aria-label", "Sélectionner votre option");
@@ -54,7 +56,9 @@ function buildDom(articleToshow) {
     myLenses.appendChild(listItem);
   }
 
-  document.querySelector("#productContainer").innerHTML += `<article class="container bg-light border rounded-2 shadow p-4">
+  document.querySelector(
+    "#productContainer"
+  ).innerHTML += `<article class="container bg-light border rounded-2 shadow p-4">
                                                             <div class="row p-2">
                                                             <img class="col-lg-4 img-fluid img-thumbnail rounded mx-auto d-block shadow-sm myimage" src="${product.imageUrl}" alt="${product.name}">
                                                             </div>
@@ -89,58 +93,74 @@ function buildDom(articleToshow) {
 
   // -------------------------- Events on page Management ---------------------------
   // Gestion de l'évènement click sur le bouton liste des produits.
-  const returnBtn = document.getElementById("return");
-  returnBtn.addEventListener("click", function () {
-    window.open("./index.html", "_self");
-  });
+  const clickOnListButton = () => {
+    const returnBtn = document.getElementById("return");
+    returnBtn.addEventListener("click", function () {
+      window.open("./index.html", "_self");
+    });
+  };
+  clickOnListButton();
 
   // Event when clicking on "Ajouter au panier" button.
   const addToCartBtn = document.getElementById("addToCart");
 
-  addToCartBtn.addEventListener("click", function (e) {
-    e.stopPropagation;
-    // Delete every element in modal's windows footer
-    let modalFooter = document.querySelector(".modal-footer");
-    removeAllChildNodes(modalFooter)
-    // If an option is not selected, go back to product page
-    if (productToAdd === undefined || productToAdd.optionProduct =="Choisisez votre optique"){
+  const clickOnAddCardButton = () => {
+    addToCartBtn.addEventListener("click", function (e) {
+      e.stopPropagation;
 
+      // Delete every element in modal's windows footer
+      let modalFooter = document.querySelector(".modal-footer");
+      removeAllChildNodes(modalFooter);
+
+      // If an option is not selected, go back to product page
+      if (
+        productToAdd === undefined ||
+        productToAdd.optionProduct == "Choisisez votre optique"
+      ) {
         // ---------  Modale management
-        document.getElementById("staticBackdropLabel").innerText="Nous avons un petit problème !";
-        document.querySelector(".modal-body").innerText ="Vous devez choisir une optique avant d'ajouter l'article au panier.";
-        modalFooter.innerHTML += '<button id="cancel" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Revenir sur la page</button>'
-        
-        
-        } else {
-          // if everything's fine,  Save selected product into localStorage
-          saveToLocal(productToAdd);
+        document.getElementById("staticBackdropLabel").innerText =
+          "Nous avons un petit problème !";
+        document.querySelector(".modal-body").innerText =
+          "Vous devez choisir une optique avant d'ajouter l'article au panier.";
+        modalFooter.innerHTML +=
+          '<button id="cancel" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Revenir sur la page</button>';
+      } else {
+        // if everything's fine,  Save selected product into localStorage
+        saveToLocal(productToAdd);
 
-          // Create Modal Page
-          document.getElementById("staticBackdropLabel").innerText="Félicitations";
-          document.querySelector(".modal-body").innerText ="Cet article a bien été ajouté au panier.";
-          
-          // Create "Aller au panier" Button
-          modalFooter.innerHTML += '<button id="cancel" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Retour</button>'
-          modalFooter.innerHTML += '<button id="goIndex" type="button" class="btn btn-warning">Liste des articles</button>';
-          modalFooter.innerHTML += '<button id="goCart" type="button" class="btn btn-danger">Aller au panier</button>';
+        // Create Modal Page
+        document.getElementById("staticBackdropLabel").innerText =
+          "Félicitations";
+        document.querySelector(".modal-body").innerText =
+          "Cet article a bien été ajouté au panier.";
 
-          // Action if user click on "Aller au panier" button 
-          document.getElementById("goCart").addEventListener('click', (e) =>{
-              window.open("./panier.html", "_self");
-              e.stopPropagation();
-              })
-          // Action if user click on "Liste des produits" button
-          document.getElementById("goIndex").addEventListener('click', (e) =>{
-              window.open("./index.html", "_self");
-              e.stopPropagation();
-              })
-          // Action if user click on "Retour" button
-          document.getElementById("cancel").addEventListener('click', (e) =>{
-              e.stopPropagation();
-              window.location.reload();
-              })
-        }
-  });
+        // Create "Aller au panier" Button
+        modalFooter.innerHTML +=
+          '<button id="cancel" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Retour</button>';
+        modalFooter.innerHTML +=
+          '<button id="goIndex" type="button" class="btn btn-warning">Liste des articles</button>';
+        modalFooter.innerHTML +=
+          '<button id="goCart" type="button" class="btn btn-danger">Aller au panier</button>';
+
+        // Action if user click on "Aller au panier" button
+        document.getElementById("goCart").addEventListener("click", (e) => {
+          window.open("./panier.html", "_self");
+          e.stopPropagation();
+        });
+        // Action if user click on "Liste des produits" button
+        document.getElementById("goIndex").addEventListener("click", (e) => {
+          window.open("./index.html", "_self");
+          e.stopPropagation();
+        });
+        // Action if user click on "Retour" button
+        document.getElementById("cancel").addEventListener("click", (e) => {
+          e.stopPropagation();
+          window.location.reload();
+        });
+      }
+    });
+  };
+  clickOnAddCardButton();
 
   //Listen witch option is selected
   const optionChoised = document.getElementById("optionSelected");
@@ -155,16 +175,16 @@ function buildDom(articleToshow) {
     // Then refresh product to add to cart
     refreshProduct();
   });
-  
+
   // --- Get products informations before adding into cart
   const refreshProduct = () => {
-  productToAdd = {
-  idProduct: product._id,
-  nameProduct: product.name,
-  priceProduct: product.price,
-  optionProduct: optionChoised.value,
-  quantityProduct: quantitySelected.value,
-};
-};
+    productToAdd = {
+      idProduct: product._id,
+      nameProduct: product.name,
+      priceProduct: product.price,
+      optionProduct: optionChoised.value,
+      quantityProduct: quantitySelected.value,
+    };
+  };
 }
 callApi(infoToCall);

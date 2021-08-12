@@ -19,9 +19,10 @@ const constructor =`<div class="container mt-5 py-5 bg-white vh-100">
                         <hr/ class="">
                         <h2>Merci pour votre confiance</h2>
                         <h2>M./Mme ${rtnMessage.contact.firstName} ${rtnMessage.contact.lastName} !</h2>
-                        <h2> Vous avez bien dépensé vos sious !</h2>
+                        <h2> Vous avez bien dépensé vos sioux !</h2>
                         <br/>
-                        <p>Nous vous confirmons que votre commande ${rtnMessage.orderId}, d'un montant total de ${totalCommand} nous est bien parvenue</p>
+                        <p>Nous vous confirmons que votre commande ${rtnMessage.orderId}, </p>
+                        <p>d'un montant total de ${totalCommand} nous est bien parvenue</p>
                         <br/>
                         <a class="btn btn-warning" href="index.html">Retour à l'acceuil</a>
                     </div>

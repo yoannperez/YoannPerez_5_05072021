@@ -105,9 +105,12 @@ if (!localStorage.getItem("panier")){
             incButton[i].addEventListener("click", (event) => {
             event.preventDefault;
             // Add one article
-            panier[i].quantityProduct= parseInt(panier[i].quantityProduct) + 1;
-            localStorage.setItem("panier", JSON.stringify(panier));
-            window.location.reload();
+            const removeArticle = () => {
+                panier[i].quantityProduct= parseInt(panier[i].quantityProduct) + 1;
+                localStorage.setItem("panier", JSON.stringify(panier));
+                window.location.reload();
+            }
+            removeArticle();
         })
     }
 
@@ -119,9 +122,13 @@ if (!localStorage.getItem("panier")){
             decButton[i].addEventListener("click", (event) => {
             event.preventDefault;
             // substract one article in the row 
-            panier[i].quantityProduct= parseInt(panier[i].quantityProduct) - 1;
-            localStorage.setItem("panier", JSON.stringify(panier));
-            window.location.reload();})
+            const addArticle = () => {
+                panier[i].quantityProduct= parseInt(panier[i].quantityProduct) - 1;
+                localStorage.setItem("panier", JSON.stringify(panier));
+                window.location.reload();
+                }
+            addArticle();
+            })
         } 
     }
 
