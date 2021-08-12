@@ -10,7 +10,7 @@ Mon objectif au sein de ce projet est de réaliser la partie front-end de la par
 
 La partie back-end est réalisée par une collègue, et est disponible sur [ce repo](https://github.com/OpenClassrooms-Student-Center/JWDP5.git) Github.
 
-Le cahier des charges/spécifications Orinoco sont téléchargeables [ici](https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/DWJ_FR_P5/P5_Spe%CC%81cifications+fonctionnelles+Orinoco.pdf).
+Le cahier des charges / spécifications Orinoco sont téléchargeables [ici](https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/DWJ_FR_P5/P5_Spe%CC%81cifications+fonctionnelles+Orinoco.pdf).
 
 ***
 ## Comment utiliser ce dépot ?
@@ -23,8 +23,6 @@ Télécharger et installer le logiciel NodeJS à cette adresse :
 
 
 ### Installation ###
-
-Le projet est basé sur une partie backend fournie pour l'exercice. 
 
 Cloner ce repo :
 
