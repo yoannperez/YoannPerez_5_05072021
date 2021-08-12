@@ -1,16 +1,13 @@
 // Get informations from LocalStorage
 let rtnMessage = JSON.parse(localStorage.getItem("confirmation")); 
 
-//Calcul du montant global du panier  
+//Calculate total cart from server's response 
 let totalCommand = 0;
     for (let i in rtnMessage.products){
         totalCommand += parseInt(rtnMessage.products[i].price);
     }
 totalCommand = formatPrice(totalCommand);
     
-
-
-
 // Define page constructor
 const constructor =`<div class="container mt-5 py-5 bg-white vh-100">
                     <div class="row mt-5">
@@ -31,5 +28,6 @@ const constructor =`<div class="container mt-5 py-5 bg-white vh-100">
 
 // Build HTML
 let container = document.getElementById("confimContainer").innerHTML += constructor;
+
 // Then delete localSorage
-localStorage.removeItem("confirmation")
+localStorage.removeItem("confirmation");

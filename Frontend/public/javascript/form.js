@@ -21,12 +21,7 @@ document.getElementById("email").oninput = () => {
   email = document.getElementById("email").value;
 }
 
-
-
-
-
-
- // Example starter JavaScript for disabling form submissions if there are invalid fields
+// Example starter JavaScript for disabling form submissions if there are invalid fields
 (function formValid () {
     'use strict'
   
@@ -38,16 +33,16 @@ document.getElementById("email").oninput = () => {
     Array.prototype.slice.call(forms).forEach(function (form) {
         form.addEventListener('submit', function (event) {
           if (!form.checkValidity()) {
-                                        event.preventDefault()
-                                        event.stopPropagation()
+                                        event.preventDefault();
+                                        event.stopPropagation();
                                         
                                         } else {
-                                          event.preventDefault()
-                                          event.stopPropagation()
+                                          event.preventDefault();
+                                          event.stopPropagation();
                                           let messageFinal = prepareMessageToSend();
-                                          sendPanier(messageFinal)
+                                          sendPanier(messageFinal);
                                         }
-          form.classList.add('was-validated')
+          form.classList.add('was-validated');
           }, 
           
           false
@@ -67,16 +62,16 @@ let prepareMessageToSend = () => {
 
   // Create list of id products and save it in products var
   let products = productsToSend ();
-  let toSend = {contact, products}
-  return toSend
+  let toSend = {contact, products};
+  return toSend;
 }
 
 function sendPanier(toSend){
   fetch("http://localhost:3000/api/cameras/order", {
   method: "POST",
-  headers: { 
-  'Accept': 'application/json', 
-  'Content-Type': 'application/json' },
+  headers: { 'Accept': 'application/json', 
+          'Content-Type': 'application/json' 
+          },
   body: JSON.stringify(toSend)})
     .then(function (res) {
         if (res.ok) {
