@@ -1,9 +1,12 @@
+![](frontend/public/img/orinico-logo.png)
 # Orinoco #
 
-This is the back end server for Project 5 of the Junior Web Developer path.
+Vous trouverez ici les fichiers rendus pour le projet 05 "Orinoco" réalisé dans le cadre du parcours développeur web proposée sur la plateforme Openclassrooms [https://openclassrooms.com/fr/paths/185-developpeur-web](https://openclassrooms.com/fr/paths/185-developpeur-web).
 
+***
 ### Prerequisites ###
 
+Vous
 You will need to have Node and `npm` installed locally on your machine.
 
 ### Installation ###
