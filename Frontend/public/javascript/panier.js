@@ -1,15 +1,15 @@
-// Define Cart variable
-let panier;
 //Show hox many products in cart when loading the page
-nbProductsInCart();
+refreshHeader();
 
 // If LocalStorage doesn't exist, we have to create it!
 if (!localStorage.getItem("panier")){
     let container = document.getElementById("panierContainer");
     container.innerHTML += `<h1 class="fw-bold d-flex justify-content-center"> Le panier est vide... <h1>`
+
     // and don't show Contact form
     document.getElementById("form").style.display = "none";
     } 
+
     // If cart exist, we load it in panier var   
     else {
         panier= JSON.parse(localStorage.getItem("panier"))
@@ -75,7 +75,7 @@ if (!localStorage.getItem("panier")){
     let delButton = document.querySelectorAll(".del-button");
     // Looping the DOM to reach every instance of the button
     for (let i = 0; i < delButton.length; i++){
-        // When clicing a button
+        // When clicking a button
         delButton[i].addEventListener("click", (event) => {
             event.preventDefault;
             // Find modal windows composant

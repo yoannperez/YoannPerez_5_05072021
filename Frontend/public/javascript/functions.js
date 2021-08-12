@@ -22,7 +22,7 @@ function removeAllChildNodes(parent) {
 }
 
 //Calc how many articles in Cart  
-const objectsInCart= ()=>{
+const objectsInCart= () =>{
   let panier= JSON.parse(localStorage.getItem("panier"))
   let totalInCart = 0;
   for (let i in panier){
@@ -32,7 +32,7 @@ const objectsInCart= ()=>{
 }
 
 //Print numbers of products in cart
-const nbProductsInCart = () => {
+const refreshHeader = () => {
     let screen = document.getElementById("totalCart");
     let price = document.getElementById("totalPrice");
     price.innerText = totalCart();
