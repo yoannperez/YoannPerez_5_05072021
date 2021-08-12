@@ -1,18 +1,44 @@
 ![](Frontend/public/img/orinoco-logo.png)
-# Orinoco #
+# Construction d'un site e-commerce #
 
-Vous trouverez ici les fichiers rendus pour le projet 05 "Orinoco" réalisé dans le cadre du parcours développeur web proposée sur la plateforme Openclassrooms [https://openclassrooms.com/fr/paths/185-developpeur-web](https://openclassrooms.com/fr/paths/185-developpeur-web).
+Vous trouverez ici les fichiers rendus pour la soutenace du projet 05 "Orinoco" réalisé dans le cadre du parcours développeur web proposée sur la plateforme Openclassrooms [https://openclassrooms.com/fr/paths/185-developpeur-web](https://openclassrooms.com/fr/paths/185-developpeur-web).
 
 ***
-### Prerequisites ###
+### Comment utiliser ce dépot ?
 
-Vous
-You will need to have Node and `npm` installed locally on your machine.
+Vous devrez disposer de NodeJS et de npm installés sur votre machine afin de pouvoir executer ce projet en local.
+
+Télécharger et installer le logiciel NodeJS à cette adresse :
+[https://nodejs.org/en/download/](https://nodejs.org/en/download/)
+
 
 ### Installation ###
 
-Clone this repo. From within the project folder, run `npm install`. You 
-can then run the server with `node server`. 
-The server should run on `localhost` with default port `3000`. If the
-server runs on another port for any reason, this is printed to the
-console when the server starts, e.g. `Listening on port 3001`.
+Le projet est basé sur une partie backend fournie pour l'exercice. 
+
+Cloner ce repo :
+
+```
+git@github.com:yoannperez/YoannPerez_5_05072021.git
+```
+
+Déplacez-vous dans le dossier Backend:
+
+```
+$ cd Backend
+```
+
+Pour installer les dépendances du projet :
+
+```
+$ npm install
+```
+
+Vous pourvez enfin démarrer le serveur avec la commande :
+
+```
+$ node server
+```
+Le serveur devrait démarrer en `localhost`, sur le port `3000` par défaut. Si, pour une raison quelconque, le serveur est exécuté sur un autre port, celui-ci est imprimé sur la console lorsque celui-ci démarre. (ex: `Listening on port 3001`).
+
+### Utiliser le site ###
