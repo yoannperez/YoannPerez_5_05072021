@@ -1,4 +1,4 @@
-![](frontend/public/img/orinico-logo.png)
+![](Frontend/public/img/orinoco-logo.png)
 # Orinoco #
 
 Vous trouverez ici les fichiers rendus pour le projet 05 "Orinoco" réalisé dans le cadre du parcours développeur web proposée sur la plateforme Openclassrooms [https://openclassrooms.com/fr/paths/185-developpeur-web](https://openclassrooms.com/fr/paths/185-developpeur-web).
