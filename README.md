@@ -27,7 +27,7 @@ Télécharger et installer le logiciel NodeJS à cette adresse :
 Cloner ce repo :
 
 ```
-https://github.com/yoannperez/YoannPerez_5_05072021.git
+git clone https://github.com/yoannperez/YoannPerez_5_05072021.git
 ```
 
 Déplacez-vous dans le dossier Backend:
