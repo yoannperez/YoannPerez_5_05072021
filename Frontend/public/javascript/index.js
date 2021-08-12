@@ -5,12 +5,14 @@ nbProductsInCart();
 
     fetch("http://localhost:3000/api/cameras")
         .then(data => data.json())
+        
         .then(jsonListArticle => {
             for (let jsonArticle of jsonListArticle) {
                 let product = new Article(jsonArticle);
                 let price = formatPrice(product.price);
                 let id = jsonArticle._id;
-                    
+        
+
                 // List Lenses
                 let lenses = product.lenses;
                 let myLenses = document.createElement("ul");
@@ -46,5 +48,6 @@ nbProductsInCart();
                                                                         </a>
                                                                     </article>`;
                 }
-            });
+            }
+        );
         
