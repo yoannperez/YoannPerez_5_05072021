@@ -33,19 +33,19 @@ git clone https://github.com/yoannperez/YoannPerez_5_05072021.git
 Déplacez-vous dans le dossier Backend:
 
 ```
-$ cd Backend
+cd Backend
 ```
 
 Installer les dépendances du projet :
 
 ```
-$ npm install
+npm install
 ```
 
 Vous pourvez enfin démarrer le serveur avec la commande :
 
 ```
-$ node server
+node server
 ```
 Le serveur devrait démarrer en `localhost`, sur le port `3000` par défaut. Si, pour une raison quelconque, le serveur est exécuté sur un autre port, celui-ci est imprimé sur la console lorsque celui-ci démarre. (ex: `Listening on port 3001`).
 
