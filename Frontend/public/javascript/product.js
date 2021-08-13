@@ -70,18 +70,19 @@ function buildDom(articleToshow) {
                                                                       <p >${product.description}</p>
                                                                       <hr/ class="mt-3"> 
                                                                       <div class="row">
-                                                                        <div class="col-3">
+                                                                        <div class="col-6">
                                                                           <p>Personalisez votre appareil : <p>
                                                                         </div>
-                                                                        <div class="col-3 ">
+                                                                        <div class="col-6 ">
                                                                           ${myLenses.outerHTML}
                                                                         </div>
-                                                                        <div class="col-5 offset-1 ">
-                                                                        <form>
-                                                                        <label for="quantity"> Quantité : </label>
-                                                                        <input type="number" style="width: 2.7em" id="quantity" name="quantity" min="1" value="1"/>  
-                                                                        </form>
-                                                                        </div>
+                                                                      </div>
+                                                                      <hr/ class="mt-3"> 
+                                                                      <div class="col-12 d-flex justify-content-center ">
+                                                                      <form>
+                                                                      <label for="quantity"> Quantité : </label>
+                                                                      <input type="number" style="width: 2.7em" id="quantity" name="quantity" min="1" value="1"/>  
+                                                                      </form>
                                                                       </div>
                                                                       <hr/ class="mt-3">  
                                                                       <div class="row p-2">
