@@ -2,7 +2,7 @@
 refreshHeader();
 
 // If LocalStorage doesn't exist, we have to create it!
-if (!localStorage.getItem("panier")){
+if (!localStorage.getItem("panier") || localStorage.getItem("panier") === "[]"){
     let container = document.getElementById("panierContainer");
     container.innerHTML += `<h1 class="fw-bold d-flex justify-content-center"> Le panier est vide... <h1>`
 
