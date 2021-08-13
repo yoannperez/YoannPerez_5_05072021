@@ -18,11 +18,6 @@ body{
     border-radius: 5px;
     box-shadow: 0 0px 10px grey;
 }
-/* ul{
-    position: absolute;
-    top:50px;
-    left: 300px;
-} */
 
 ul{
     list-style-type: circle;
@@ -45,5 +40,16 @@ article:hover{
 
 #panierContainer{
     margin-top: 100px;
+}
+
+.nbBox{
+    background-color: white;
+    padding: 0.2em 10px;
+    margin-right: 4px;
+    vertical-align: baseline;
+    border: 1px solid gray;
+    border-radius: 5px;
+    
+
 }
 

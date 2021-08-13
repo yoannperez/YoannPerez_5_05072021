@@ -17,7 +17,7 @@ if (!localStorage.getItem("panier") || localStorage.getItem("panier") === "[]"){
         let container = document.getElementById("panierContainer");
         
         //Create tab header
-        container.innerHTML += `<div class="container rounded-2 shadow">
+        container.innerHTML += `<div class="row rounded-2 shadow m-1 p-1">
                                     <table class="table table-striped">
                                         <thead>
                                             <tr>
@@ -53,7 +53,7 @@ if (!localStorage.getItem("panier") || localStorage.getItem("panier") === "[]"){
                                     <th scope="row" class="d-none d-lg-table-cell">${p}</th>
                                     <td>${panier[i].nameProduct}</td>
                                     <td class="d-none d-lg-table-cell">${panier[i].optionProduct}</td>
-                                    <td><button value='${i}' type="button" class="btn btn-secondary d-none d-lg-inline dec btn-sm"><</button> <input id="number" type="number" style="width: 2.7em;" readonly value="${panier[i].quantityProduct}"> <button value='${i}' type="button" class="btn btn-secondary btn-sm inc d-none d-lg-inline"> > </button></td>
+                                    <td><button value='${i}' type="button" class="btn btn-secondary d-none d-lg-inline dec btn-sm"><</button> <span class="nbBox">${panier[i].quantityProduct}</span><button value='${i}' type="button" class="btn btn-secondary btn-sm inc d-none d-lg-inline"> > </button></td>
                                     <th scope="col" class="d-none d-lg-table-cell">${formatPrice(panier[i].priceProduct)}</th>
                                     <th scope="col">${formatPrice(totalArticle)}</th>
                                     <th scope="col"><button value='${i}' type="button" class="btn btn-warning del-button btn-sm" data-bs-toggle="modal" data-bs-target="#staticBackdrop" >Supprimer</button></th>
