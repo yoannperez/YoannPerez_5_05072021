@@ -6,7 +6,7 @@ Vous trouverez ici les fichiers rendus pour la soutenace du projet 05 "Orinoco" 
 Orinoco, une entreprise de commerce en ligne, souhaite se démarquer des grands site e-commerce comme Amazon en créant des applications thématiques ne vendant qu’un seul groupe de produits. Il y a par exemple Oribook pour les livres ou Oritextil pour les vêtements. 
 Elle souhaite créer un premier MVP (Minimum Viable Product) pour démontrer le fonctionnement de ses applications à ses investisseurs.
 
-Mon objectif au sein de ce projet est de réaliser la partie front-end de la partie.
+Mon objectif au sein de ce projet est de réaliser la partie front-end de l'application.
 
 La partie back-end est réalisée par une collègue, et est disponible sur [ce repo](https://github.com/OpenClassrooms-Student-Center/JWDP5.git) Github.
 
