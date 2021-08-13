@@ -7,6 +7,7 @@ if (!localStorage.getItem("panier") || localStorage.getItem("panier") === "[]"){
     container.innerHTML += `<h1 class="fw-bold d-flex justify-content-center"> Le panier est vide... <h1>`
 
     // and don't show Contact form
+    
     document.getElementById("form").style.display = "none";
     } 
 
