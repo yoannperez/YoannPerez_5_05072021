@@ -17,14 +17,14 @@ if (!localStorage.getItem("panier") || localStorage.getItem("panier") === "[]"){
         
         //Create tab header
         container.innerHTML += `<div class="container rounded-2 shadow">
-                                    <table class="table ">
+                                    <table class="table table-striped">
                                         <thead>
                                             <tr>
-                                                <th scope="col">#</th>
+                                                <th scope="col" class="d-none d-lg-table-cell">#</th>
                                                 <th scope="col">Article</th>
-                                                <th scope="col">Option</th>
+                                                <th scope="col" class="d-none d-lg-table-cell">Option</th>
                                                 <th scope="col">Quant.</th>
-                                                <th scope="col">P.U.</th>
+                                                <th scope="col" class="d-none d-lg-table-cell">P.U.</th>
                                                 <th scope="col">P.Total</th>
                                                 <th scope="col">Supprimer</th>
                                             </tr>
@@ -40,7 +40,7 @@ if (!localStorage.getItem("panier") || localStorage.getItem("panier") === "[]"){
                                     </table>
                                 </div>`
                                 ;
-        
+                                
         const buildRow = () => {
         // Build tab body with informations saved in the local Storage
         let tab = document.getElementById("tabBody");
@@ -49,11 +49,11 @@ if (!localStorage.getItem("panier") || localStorage.getItem("panier") === "[]"){
             let p = parseInt(i)+1;
             let totalArticle = parseInt(panier[i].priceProduct)*parseInt(panier[i].quantityProduct);
             tab.innerHTML += `<tr class="align-middle" >
-                                    <th scope="row">${p}</th>
+                                    <th scope="row" class="d-none d-lg-table-cell">${p}</th>
                                     <td>${panier[i].nameProduct}</td>
-                                    <td>${panier[i].optionProduct}</td>
+                                    <td class="d-none d-lg-table-cell">${panier[i].optionProduct}</td>
                                     <td><button value='${i}' type="button" class="btn btn-secondary d-none d-lg-inline dec btn-sm"><</button> <input id="number" type="number" style="width: 2.7em;" readonly value="${panier[i].quantityProduct}"> <button value='${i}' type="button" class="btn btn-secondary btn-sm inc d-none d-lg-inline"> > </button></td>
-                                    <th scope="col">${formatPrice(panier[i].priceProduct)}</th>
+                                    <th scope="col" class="d-none d-lg-table-cell">${formatPrice(panier[i].priceProduct)}</th>
                                     <th scope="col">${formatPrice(totalArticle)}</th>
                                     <th scope="col"><button value='${i}' type="button" class="btn btn-warning del-button btn-sm" data-bs-toggle="modal" data-bs-target="#staticBackdrop" >Supprimer</button></th>
                                 </tr>`
@@ -62,9 +62,11 @@ if (!localStorage.getItem("panier") || localStorage.getItem("panier") === "[]"){
 
         // Build last row in tab with total cart
         let totalLine = document.getElementById("total");
-        totalLine.innerHTML += `<th colspan="5" class="text-end" scope="col">Total Commande : </th>
+        totalLine.innerHTML += `<th scope="col" colspan="2">Total Panier : </th>
                                 <th>${totalCart()}</th>
-                                <th><button type="button" id="emptyCart" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Vider le Panier</button></th>`
+                                <th colspan="2"><button type="button" id="emptyCart" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Vider le Panier</button></th>
+                                
+                                `
     }
 
 // ------------------------- Cart Events Management -------------------------------------
