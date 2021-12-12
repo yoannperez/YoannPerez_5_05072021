@@ -1,5 +1,6 @@
 // Define Variables
 let sResponse
+let apiAdress = "http://orinoco.sc1yperez.universe.wf/"
 var firstName;
 document.getElementById("firstName").oninput = () => {
   firstName = document.getElementById("firstName").value;
@@ -67,7 +68,7 @@ let prepareMessageToSend = () => {
 }
 
 function sendPanier(toSend){
-  fetch("http://localhost:3000/api/cameras/order", {
+  fetch(apiAdress + "api/cameras/order", {
   method: "POST",
   headers: { 'Accept': 'application/json', 
           'Content-Type': 'application/json' 

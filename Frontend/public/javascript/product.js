@@ -7,7 +7,8 @@ let id = params.get("id");
 
 // Var declaration
 let productToAdd;
-let infoToCall = "http://localhost:3000/api/cameras/" + id;
+let apiAdress = "http://orinoco.sc1yperez.universe.wf/"
+let infoToCall = apiAdress + "api/cameras/" + id;
 
 // -------------------------- Page management ---------------------------
 // Calling API

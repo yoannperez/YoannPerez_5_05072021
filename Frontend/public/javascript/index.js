@@ -1,9 +1,11 @@
 //Show hox many products in cart when loading the page
 refreshHeader();
 
+let apiAdress = "http://orinoco.sc1yperez.universe.wf/"
+
 // Main function definition 
 function mainFunction () {
-    fetch("http://localhost:3000/api/cameras")
+    fetch(apiAdress + "api/cameras")
         .then(data => data.json())
 
         // If error while fetching server
