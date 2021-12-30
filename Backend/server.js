@@ -2,6 +2,7 @@ const http = require('http');
 const https = require('https');
 const fs = require('fs');
 const app = require('./app');
+require('dotenv').config()
 
 // --------------- VERSION   HTTP ------------
 // --------------- VERSION   HTTP ------------
@@ -19,7 +20,7 @@ const normalizePort = val => {
 };
 
 //Déclaration du port
-const port = normalizePort(process.env.PORT || '3000');
+const port = normalizePort(process.env.PORT || '3000');
 app.set('port', port);
 
 // Errors Management
@@ -58,8 +59,8 @@ server.listen(port);
 
 // Https SLL KEY AND CERTS //
 let sslOptions = {
-  key: fs.readFileSync('./ssl/example.com+4-key.pem'),
-  cert: fs.readFileSync('./ssl/example.com+4.pem')
+  key: fs.readFileSync(process.env.SSLKEY),
+  cert: fs.readFileSync(process.env.SSLCERT)
 };
 
 // Normalisation port
@@ -76,7 +77,7 @@ const normalizePortHttps = val => {
 };
 
 //Déclaration du port
-const portHttps = normalizePortHttps(process.env.PORT || '3001');
+const portHttps = normalizePortHttps(process.env.PORTHTTPS || '3001');
 app.set('port', portHttps);
 
 
