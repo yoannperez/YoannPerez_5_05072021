@@ -1,7 +1,8 @@
 //Show hox many products in cart when loading the page
 refreshHeader();
 
-let apiAdress = "http://orinoco.sc1yperez.universe.wf/"
+
+let apiAdress = API;
 
 // Main function definition 
 function mainFunction () {

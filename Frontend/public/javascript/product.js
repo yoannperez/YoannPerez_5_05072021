@@ -7,7 +7,7 @@ let id = params.get("id");
 
 // Var declaration
 let productToAdd;
-let apiAdress = "http://orinoco.sc1yperez.universe.wf/"
+let apiAdress = API;
 let infoToCall = apiAdress + "api/cameras/" + id;
 
 // -------------------------- Page management ---------------------------

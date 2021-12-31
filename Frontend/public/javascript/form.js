@@ -1,6 +1,6 @@
 // Define Variables
 let sResponse
-let apiAdress = "http://orinoco.sc1yperez.universe.wf/"
+let apiAdress = API;
 var firstName;
 document.getElementById("firstName").oninput = () => {
   firstName = document.getElementById("firstName").value;
